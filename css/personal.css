@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
 }
 
 html, body {
@@ -17,31 +18,63 @@ html, body {
   display: flex;
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
+
 }
 
 /* Contenido principal */
 .main-content {
   flex: 1;
-  background-color: #1E1E1E; /* Negro oscuro, fondo general */
-  color: #FF79C6; /* Texto rosa elegante */
-
+  background: #121212; /* Degradado sutil de fondo */
+  color: #ff5733; /* Texto rosa */
   padding: 2rem;
-  overflow: auto; /* Permitir scroll si el contenido se expande */
+  overflow: auto;
+  text-align: center; /* Alinea internamente el texto al centro */
+  margin: 0 auto; /* Centra el contenedor horizontalmente */
+  display: flex; /* Usamos Flexbox para centrar el contenido */
+  justify-content: center; /* Centro horizontal */
+  align-items: center; /* Centro vertical */
+
 }
 
 /* Distribución del menú */
 .menu-lateral {
   display: flex;
-  flex-direction: column; /* Elementos en una columna */
-  justify-content: space-between; /* Distribuye los elementos */
-  align-items: center; /* Centra horizontalmente los elementos */
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   width: 30%; /* Ancho del menú lateral */
-  height: 100vh; /* Altura completa de la ventana */
-  background-color: #121212; /* Fondo lateral */
+  height: 100vh; /* Altura completa */
+  background: #121212; /* Fondo oscuro */
   position: relative;
-  padding: 0;
-  overflow: hidden;
+  padding: 2rem 1rem;
+  text-align: center;
+  overflow: visible;
+
 }
+
+/* Línea divisoria */
+.linea-divisoria {
+  width: 10%; /* Ancho suficiente para las teclas grandes */
+  height: 100%; /* Línea divisoria ocupa todo el alto */
+  background: #121212; /* Sin color de fondo */
+  display: flex; /* Centrado horizontal y vertical del SVG */
+  align-items: center; /* Centrado vertical */
+  justify-content: center; /* Centrado horizontal */
+  overflow: hidden; /* Evita desbordamientos */
+}
+
+.linea-divisoria svg {
+  width: 100%; /* Permite al SVG ocupar todo el ancho del contenedor */
+  height: 100%; /* Escalado vertical completo */
+  z-index: 3;
+
+}
+.tecla:active rect {
+  transform: scale(0.95); /* Reduce el tamaño ligeramente al hacer clic */
+  transition: transform 0.1s ease;
+}
+
 
 /* Redes sociales al fondo */
 .social-links {
@@ -294,4 +327,84 @@ html, body {
     font-size: 1.2rem; /* Reducir tamaño en pantallas pequeñas */
     padding: 0.3rem; /* Reducir relleno aún más */
   }
+}
+
+.emojiMenu{
+  max-width: 25px; /* Tamaño máximo para mantener proporciones */
+  max-height: 25px;
+  width: auto; /* Ajusta proporcionalmente según el ancho */
+  height: auto;
+
+}
+
+/* Estilos para el modal */
+.modal-teclado {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.8); /* Fondo semitransparente */
+  color: #ffffff;
+  font-family: 'Consolas', monospace;
+  padding: 10px 20px;
+  font-size: 18px;
+  text-align: left;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  z-index: 1000;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 60px;
+  overflow-y: hidden;
+}
+
+/* Evitar que el texto se salga */
+#texto-modal {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+/* Estilo para los párrafos dentro de la sección */
+#inicio p {
+  text-align: center; /* Alinea internamente el texto al centro */
+  margin-bottom: 1.5em; /* Espaciado entre párrafos (1.5 veces el tamaño de la fuente) */
+  line-height: 1.8; /* Aumentar el interlineado para una mejor legibilidad */
+  font-size: 1rem; /* Tamaño de fuente estándar, ajustable según diseño general */
+  color: #ff5733;
+
+}
+
+
+/* Clase personalizada para resaltar palabras */
+.resaltado {
+  font-style: italic; /* Aplicar cursiva para hacerlo más gracioso inicialmente */
+  display: inline-block; /* Permitir una animación más fluida */
+  transform: rotate(-5deg); /* Inclinar ligeramente el texto */
+  transition: transform 0.3s ease, font-style 0.3s ease; /* Animación suave */
+  color: #FF79C6; /* Un color llamativo, por ejemplo, naranja */
+  font-weight: bold; /* También lo hacemos un poco más grueso */
+}
+
+/* Efecto hover: enderezar el texto */
+.resaltado:hover {
+  transform: rotate(0); /* Volver a la posición natural */
+  font-style: normal; /* Quitar la cursiva */
+  color: #ff5733; /* Cambiar a un color diferente para reaccionar al hover */
+}
+
+.light-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Permite interacción normal con el contenido */
+  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 10%, rgba(255, 255, 255, 0) 15%);
+  transition: background 0.1s ease-out; /* Movimiento más suave */
+  z-index: 0; /* Asegura que esté detrás del texto */
+
+
 }
