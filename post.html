@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div class="titulo" id="tituloCabecera">Enviar y Recuperar Datos con JSONPlaceholder</div>
+<div class="seccion">
+  <h2 class="d-flex justify-content-between align-items-center">Envío de datos (POST)
+    <a type="button" class="btn btn-dark btn-snippet" onclick="mostrarCodigo('enviar')">
+      <i class="fas fa-code"></i> Ver código
+    </a>
+  </h2>
+  <!-- Formulario para enviar datos -->
+  <form id="postForm" action="#">
+    <div class="form-group">
+      <label for="title">Título</label>
+      <input type="text" id="title" placeholder="Ingresa un título" required>
+    </div>
+    <div class="form-group">
+      <label for="body">Mensaje</label>
+      <textarea id="body" placeholder="Ingresa un mensaje" required></textarea>
+    </div>
+    <button type="submit" class="btn">Enviar</button>
+  </form>
+  <div id="respuesta" class="respuesta"></div>
+</div>
+
+<div class="seccion">
+  <h2 class="d-flex justify-content-between align-items-center">Obtener datos GET
+    <a type="button" class="btn btn-dark btn-snippet" onclick="mostrarCodigo('obtener')">
+      <i class="fas fa-code"></i> Ver código
+    </a>
+  </h2>
+  <!-- Botón para obtener datos -->
+  <button onclick="obtenerDatos()">Obtener Posts</button>
+  <div id="posts" style="margin-top: 20px;">
+    <h2>Posts desde JSONPlaceholder:</h2>
+    <!-- Aquí se mostrarán los datos recuperados de la API -->
+  </div>
+</div>
+
+</div>
+</body>
+</html>

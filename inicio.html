@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Inicio</title>
+</head>
+<body>
+<div class="titulo" id="tituloCabecera">Introducción al tema <br> AJAX</div>
+<div class="seccion" id="seccionAJAX">
+  <!-- Botón para mostrar/ocultar el menú -->
+  <button id="menuToggle">Menú de Apartados</button>
+
+  <!-- Menú desplegable -->
+  <div id="menuDesplegable" >
+    <ul>
+      <li data-apartado="1">1. ¿Qué es fetch y para qué se utiliza?</li>
+      <li data-apartado="2">2. Ventajas frente a XMLHttpRequest</li>
+      <li data-apartado="3">3. Sintaxis básica</li>
+      <li data-apartado="4">4. Soporta Promesas y el manejo de errores</li>
+      <li data-apartado="5">5. Métodos HTTP soportados</li>
+      <li data-apartado="6">6. Cómo enviar encabezados personalizados</li>
+      <li data-apartado="7">7. Cómo enviar datos en el cuerpo de la solicitud</li>
+      <li data-apartado="8">8. Manejo de respuestas</li>
+      <li data-apartado="9">9. Control y manejo de errores HTTP y de red</li>
+      <li data-apartado="10">10. Configuración de opciones avanzadas</li>
+      <li data-apartado="11">11. Diferencia entre los códigos 2xx</li>
+      <li data-apartado="12">12. Uso con async/await para código más limpio</li>
+      <li data-apartado="13">13. Uso con formularios para enviar datos</li>
+      <li data-apartado="14">14. Cómo manejar timeouts con AbortController</li>
+      <li data-apartado="15">15. Buenas prácticas y consideraciones de seguridad</li>
+      <li data-apartado="x" class="close-menu">✖ Cerrar Menú</li>
+    </ul>
+  </div>
+
+  <div id="contenidoApartado">
+    <!-- Aquí se mostrará el contenido dinámico del apartado seleccionado -->
+    Selecciona por dónde quieres comenzar usando el Menú de Apartados.
+  </div>
+
+</div>
+</body>
+</html>

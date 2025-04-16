@@ -1,0 +1,736 @@
+/*! HTML5 Boilerplate v9.0.1 | MIT License | https://html5boilerplate.com/ */
+
+/* main.css 3.0.0 | MIT License | https://github.com/h5bp/main.css#readme */
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+body {
+  background: linear-gradient(135deg, #320064, #0d0d0d, #000000, #0d0d0d, #320064);
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.titulo {
+  font-size: 3rem;
+  font-weight: bold;
+  color: white;
+  text-shadow: 2px 2px #141414; /* Sombra oscura */
+  text-align: center; /* Centrado horizontalmente */
+  margin-top: 20px; /* Separación del borde superior */
+}
+/* Menú lateral */
+.menu-lateral {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  background: linear-gradient(180deg, #000000, #141414, #282828); /* Fondo degradado oscuro */
+  overflow-x: hidden;
+  transition: width 0.3s ease-in-out; /* Transición suave para expansión */
+  padding-top: 60px;
+  box-shadow: 4px 0 8px rgba(0, 0, 0, 0.2); /* Sombra */
+  display: flex;
+  flex-direction: column; /* Alinea el contenido verticalmente */
+
+}
+
+.menu-lateral a {
+  padding: 15px 30px;
+  text-decoration: none;
+  font-size: 1.6rem; /* Tamaño del texto */
+  color: white; /* Color blanco puro */
+  display: block;
+  transition: color 0.3s ease-in-out; /* Transición para hover */
+  line-height: 1.8;
+  position: relative;
+}
+.menu-lateral a:hover {
+  color: #ffef5e; /* Color dorado/amarillo de hover */
+}
+.menu-lateral .menu a:hover::after {
+  content: '';
+  position: absolute;
+  left: 30px; /* Subrayado debajo del texto */
+  bottom: 10px;
+  height: 3px;
+  width: calc(100% - 60px); /* Toma el ancho del enlace */
+  background: #ffef5e;
+  border-radius: 5px;
+  animation: subrayado 0.3s ease-in-out;
+}
+@keyframes subrayado {
+  0% { width: 0; }
+  100% { width: calc(100% - 60px); }
+}
+
+.menu-lateral .cerrar {
+  display: flex; /* Flexbox para centrar contenido */
+  justify-content: center;
+  align-items: center;
+  width: 150px; /* Área clicable */
+  height: 150px; /* Altura clicable */
+  background: none; /* Sin fondo */
+  border: none; /* Sin bordes */
+  position: relative; /* Posicionamiento estable */
+  transition: transform 0.5s ease-in-out; /* Suavidad del movimiento */
+}
+
+/* SVG de la flecha */
+.menu-lateral .cerrar .icono-flecha {
+  width: 100px; /* Flecha grande */
+  height: 100px; /* Proporcionalmente grande */
+  stroke: white; /* Color blanco de las líneas */
+  stroke-width: 12; /* Grosor inicial */
+  transition: stroke 0.5s ease-in-out, stroke-width 0.5s ease-in-out; /* Suavidad en hover */
+}
+
+
+/* Contenedor exclusivo para la flecha */
+.menu-lateral .flecha-cerrar {
+  position: absolute; /* Posiciona la flecha en el borde derecho */
+  top: 50%; /* Centrada verticalmente */
+  right: 0; /* Pegada al borde derecho */
+  transform: translateY(-50%); /* Centra la flecha verticalmente */
+  display: flex; /* Flexbox para centrar */
+  justify-content: center; /* Contenido centrado horizontal */
+  align-items: center; /* Contenido centrado vertical */
+  width: 150px; /* Área amplia de clic */
+  height: 150px; /* Área amplia */
+  cursor: pointer; /* Puntero de acción */
+  transition: background-color 0.5s ease-in-out, opacity 0.5s ease-in-out; /* Hover suave */
+}
+
+/* Hover ajustado */
+.menu-lateral .cerrar:hover {
+  transform: translateX(-20px); /* Desplazamos la flecha hacia la izquierda */
+}
+
+/* Ajustes específicos del icono SVG */
+.menu-lateral .cerrar .icono-flecha {
+  stroke: #ffef5e; /* Cambia a amarillo */
+  stroke-width: 14; /* Grosor ligeramente mayor */
+
+}
+
+
+/* Estilo para el título del menú */
+.menu-lateral .titulo-menu {
+  font-size: 1.8rem; /* Tamaño del texto */
+  font-weight: bold;
+  color: white; /* Mismo color que los enlaces */
+  margin: 0 30px; /* Espaciado horizontal */
+  padding: 10px 0; /* Un poco de espacio arriba y abajo */
+  border-bottom: 2px solid white; /* Línea divisoria */
+}
+
+/* Botón para abrir el menú */
+.btn-hamburguesa {
+  font-size: 1.5rem;
+  cursor: pointer;
+  background: linear-gradient(135deg, #320064, #6f00ff); /* Tonos luminosos y vivos */
+  color: white;
+  border: none;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1001;
+  padding: 10px 15px;
+  border-radius: 50px; /* Botón redondeado */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombras */
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.3s ease;
+}
+.btn-hamburguesa:hover {
+  transform: scale(1.1); /* Crece ligeramente al hover */
+  background: linear-gradient(120deg, #8e2de2, #4a00e0); /* Más brillante en hover */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Sombras más profundas */
+}
+.btn-hamburguesa.oculto {
+  opacity: 0; /* Oculta el botón */
+  pointer-events: none; /* Evita que sea interactivo */
+}
+
+/* Botón flotante para la letra "i" */
+.btn-flotante {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #320064, #6f00ff); /* Tonos luminosos y vivos */
+  text-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: perspective(500px) rotateX(10deg);
+  animation: saltar 2s infinite ease-in-out;
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-flotante:hover {
+  transform: scale(1.1) perspective(500px) rotateX(0deg);
+  background: linear-gradient(135deg, #141414, #282828); /* Tonos oscuros de la paleta */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.btn-flotante svg {
+  width: 36px;
+  height: 36px;
+  fill: white; /* Gorro en blanco */
+  transition: transform 0.3s ease, fill 0.3s ease, stroke 0.3s ease;
+}
+
+.btn-flotante:hover svg {
+  fill: #ffef5e; /* Cambia el color interno a dorado */
+  stroke: #000000; /* El contorno permanece en negro */
+  stroke-width: 1; /* Amplía un poco más el borde al hacer hover */
+  transform: scale(1.3); /* Agranda el icono al pasar el ratón */
+}
+
+@keyframes saltar {
+  0%, 100% {
+    transform: translateY(0) perspective(500px) rotateX(10deg);
+  }
+  50% {
+    transform: translateY(-8px) perspective(500px) rotateX(10deg);
+  }
+}
+
+/* Estilo para el modal */
+.modal-didactico {
+  display: none; /* Oculto por defecto */
+  position: fixed;
+  z-index: 1500;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro y semitransparente */
+}
+
+.contenido-modal {
+  position: absolute;
+  background: white;
+  width: 60%;
+  max-width: 800px;
+  padding: 20px;
+  border-radius: 8px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  text-align: left; /* Asegurar alineación a la izquierda */
+  font-family: Arial, sans-serif; /* Fuente legible y profesional */
+}
+
+.cerrar-modal {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #aaa;
+}
+
+.cerrar-modal:hover {
+  color: #000;
+}
+
+/* Ajustes para alinear el contenido del modal */
+#contenidoDidactico {
+  text-align: justify; /* Justificar el texto */
+  max-height: 90vh; /* Altura límite para el contenido */
+  overflow-y: auto; /* Habilitar desplazamiento vertical */
+  padding-right: 10px; /* Separación para evitar cortar texto por la barra de scroll */
+  line-height: 1.6; /* Mejorar espaciado entre líneas */
+  font-size: 14px; /* Tamaño de fuente legible */
+}
+
+/* Personalización para el scroll */
+#contenidoDidactico::-webkit-scrollbar {
+  width: 8px; /* Ancho del scroll */
+}
+
+#contenidoDidactico::-webkit-scrollbar-thumb {
+  background: #bbb; /* Color del scroll */
+  border-radius: 4px; /* Esquinas redondeadas */
+}
+
+#contenidoDidactico::-webkit-scrollbar-thumb:hover {
+  background: #888; /* Color del scroll al pasar el puntero */
+}
+
+
+.seccion {
+  background: rgba(255, 255, 255, 0.8); /* Fondo blanco con transparencia */
+  border-radius: 15px; /* Bordes más redondeados */
+  padding: 40px; /* Más espacio interno dentro del cuadro */
+  width: 90%; /* Más ancho que antes */
+  max-width: 1000px; /* Aumentado el tamaño máximo */
+  margin: 30px auto; /* Centrado horizontal */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra para destacar el cuadro */
+}
+
+.seccion h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Estilos para los botones */
+.seccion button {
+  background: linear-gradient(135deg, #320064, #6f00ff); /* Tonos luminosos y vivos */
+  color: white; /* Texto blanco */
+  border: 0;
+  border-radius: 50px; /* Redondeado */
+  font-size: 1.2rem;
+  padding: 10px 30px; /* Espaciado interno */
+  cursor: pointer;
+  transition: all 0.3s ease; /* Transición para el efecto hover */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombras */
+}
+
+.seccion button:hover {
+  background: linear-gradient(135deg, #6f00ff, #9e47ff); /* Tonos más claros y vibrantes */
+  transform: translateY(-2px); /* Efecto de "flotación" */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Sombras más marcadas */
+}
+
+.seccion button:active {
+  transform: translateY(0); /* Regresa cuando se presiona */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.contenido {
+  margin-top: 20px;
+  background-color: #fdfdfd;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+html {
+  color: #222;
+  font-size: 1em;
+  line-height: 1.4;
+}
+
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+  resize: vertical;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/*
+ * Hide visually and from screen readers
+ */
+
+.hidden,
+[hidden] {
+  display: none !important;
+}
+
+/*
+ * Hide only visually, but have it available for screen readers:
+ * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ *
+ * 1. For long content, line feeds are not interpreted as spaces and small width
+ *    causes content to wrap 1 word per line:
+ *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
+ */
+
+.visually-hidden {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  /* 1 */
+}
+
+/*
+ * Extends the .visually-hidden class to allow the element
+ * to be focusable when navigated to via the keyboard:
+ * https://www.drupal.org/node/897638
+ */
+
+.visually-hidden.focusable:active,
+.visually-hidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  white-space: inherit;
+  width: auto;
+}
+
+/*
+ * Hide visually and from screen readers, but maintain layout
+ */
+
+.invisible {
+  visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * The use of `table` rather than `block` is only necessary if using
+ * `::before` to contain the top-margins of child elements.
+ */
+
+.clearfix::before,
+.clearfix::after {
+  content: "";
+  display: table;
+}
+
+.clearfix::after {
+  clear: both;
+}
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {
+  /* Style adjustments for viewports that meet the condition */
+}
+
+@media print,
+  (-webkit-min-device-pixel-ratio: 1.25),
+  (min-resolution: 1.25dppx),
+  (min-resolution: 120dpi) {
+  /* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid the additional HTTP request:
+   https://www.phpied.com/delay-loading-your-print-css/
+   ========================================================================== */
+
+@media print {
+  *,
+  *::before,
+  *::after {
+    background: #fff !important;
+    color: #000 !important;
+    /* Black prints faster */
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+  }
+
+  abbr[title]::after {
+    content: " (" attr(title) ")";
+  }
+
+  /*
+   * Don't show links that are fragment identifiers,
+   * or use the `javascript:` pseudo protocol
+   */
+  a[href^="#"]::after,
+  a[href^="javascript:"]::after {
+    content: "";
+  }
+
+  pre {
+    white-space: pre-wrap !important;
+  }
+
+  code {
+
+    color: #333; /* Texto negro */
+    font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    padding: 10px;
+    border-radius: 5px;
+    overflow-x: auto; /* Para scroll horizontal si es necesario */
+  }
+
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}
+
+#pregunta-persistencia {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #f8f9fa; /* Fondo claro */
+  border-left: 5px solid #007bff; /* Línea decorativa azul */
+  border-radius: 5px;
+  font-family: 'Arial', sans-serif;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#pregunta-persistencia h3 {
+  margin-top: 0;
+  color: #007bff; /* Azul bonito */
+}
+
+#pregunta-persistencia p {
+  margin: 10px 0;
+  color: #212529; /* Gris oscuro */
+}
+
+#pregunta-persistencia .hint {
+  font-style: italic;
+  font-size: 0.9em;
+  color: #6c757d; /* Gris claro */
+}
+
+/* Estilo para el botón "Ver código" */
+.btn-snippet {
+  background-color: #230046 !important; /* Morado oscuro de la paleta */
+  color: #fff !important; /* Texto blanco */
+  border: none !important; /* Eliminar bordes adicionales */
+  font-size: 0.9rem !important; /* Tamaño discreto */
+  padding: 5px 10px !important; /* Espaciado interno */
+  border-radius: 3px !important; /* Bordes ligeramente redondeados */
+  text-align: left !important; /* Alinear el contenido del botón a la izquierda */
+  display: flex !important; /* Flex para iconos y texto alineados */
+  align-items: center !important; /* Ajustar alineación vertical al centro */
+  gap: 8px !important; /* Separación entre el icono y el texto */
+  transition: all 0.3s ease !important; /* Animación suave */
+}
+
+.btn-snippet i {
+  font-size: 1rem !important; /* Tamaño del icono alineado al texto */
+}
+
+/* Efecto al pasar el cursor */
+.btn-snippet:hover {
+  background-color: #320064 !important; /* Morado más intenso de la paleta */
+  color: #f8f9fa !important; /* Texto ligeramente más claro */
+}
+
+button.btn.btn-dark.btn-snippet {
+  background-color: #230046 !important; /* Morado oscuro consistente */
+  color: #fff !important; /* Texto blanco */
+}
+
+/* Estilo de grupo de formulario */
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.form-group label {
+  font-size: 14px;
+  color: #333;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fdfdfd;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #007bff;
+  background-color: #ffffff;
+  box-shadow: 0 3px 10px rgba(0, 123, 255, 0.2);
+}
+
+/* Respuesta */
+.respuesta {
+  margin-top: 20px;
+  font-size: 14px;
+  color: green;
+}
+
+/* Botón para mostrar/ocultar el menú */
+#menuToggle {
+  display: block; /* Asegura que ocupe todo el ancho del contenedor */
+  width: 100%; /* Establece el ancho completo */
+  padding: 15px; /* Espaciado interno más amplio */
+  background: #6f00ff; /* Color vibrante de la paleta */
+  color: #fff; /* Texto blanco */
+  border: none; /* Sin bordes */
+  border-radius: 8px; /* Bordes más redondeados */
+  font-size: 16px; /* Texto ligeramente más grande */
+  font-weight: bold; /* Resaltar el texto */
+  text-align: center; /* Centrar el texto */
+  cursor: pointer; /* Cursor pointer para indicar clic */
+  transition: all 0.3s ease; /* Transición suave para hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Añade un efecto de sombra */
+  margin-bottom: 20px;
+}
+
+#menuToggle:hover {
+  background: #320064; /* Color de hover más oscuro de la paleta */
+  color: #f1e7fd; /* Texto ligeramente más claro */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Intensifica la sombra en hover */
+  transform: scale(1.02); /* Pequeño efecto de "crecimiento" */
+}
+
+/* Contenedor del menú */
+#menuDesplegable {
+  position: absolute;
+  top: 0; /* Desde la parte superior del div seccion */
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #eaeaea;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  display: none; /* Oculto por defecto */
+  border-radius: 8px; /* Bordes redondeados */
+}
+
+/* Listado del menú */
+#menuDesplegable ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#menuDesplegable li {
+  padding: 10px 15px;
+  border-bottom: 1px solid #eaeaea;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#menuDesplegable li:last-child {
+  border-bottom: none; /* Eliminar el borde del último elemento */
+  text-align: center; /* Centrar la cruz */
+  font-weight: bold;
+  color: #ff4d4d;
+  cursor: pointer;
+}
+
+#menuDesplegable li:last-child:hover {
+  background: #ffebeb; /* Fondo rojo claro al pasar el mouse */
+}
+
+#menuDesplegable li:hover {
+  background: #f0f0f0; /* Cambiar color al pasar el mouse */
+}
+
+/* Hacer que seccionAJAX sea referencia para el menú */
+#seccionAJAX {
+  position: relative; /* Clave para que el menú se posicione dentro de este div */
+  padding: 20px;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+
+

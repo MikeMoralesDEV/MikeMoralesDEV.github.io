@@ -1,0 +1,73 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link rel="stylesheet" href="css/style.css">
+  <meta name="description" content="">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+  <meta property="og:image:alt" content="">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.png">
+
+
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+
+<!-- Add your site or application content here -->
+<h1 class="titulo" id="tituloCabecera">TALLER AJAX - Método XHR</h1>
+
+<!-- Sección para cargar contenido desde un archivo HTML -->
+<div class="seccion">
+  <h2>Cargar contenido desde un archivo HTML</h2>
+  <button class="btn btn-primary btn-lg" onclick="mostrarGen('html')">Cargar HTML</button>
+  <button class="btn btn-secondary btn-sm" onclick="mostrarCodigo('html')">Código fuente</button>
+  <div id="contenido-html" class="contenido"></div>
+</div>
+
+<!-- Sección para cargar contenido desde un archivo XML -->
+<div class="seccion">
+  <h2>Cargar contenido desde un archivo XML</h2>
+  <button class="btn btn-success btn-lg" onclick="mostrarGen('xml')">Cargar XML</button>
+  <button class="btn btn-secondary btn-sm" onclick="mostrarCodigo('xml')">Código fuente</button>
+  <div id="contenido-xml" class="contenido"></div>
+</div>
+
+<!-- Sección para cargar contenido desde un archivo JSON -->
+<div class="seccion">
+  <h2>Cargar contenido desde un archivo JSON</h2>
+  <!-- Botón para cargar JSON -->
+  <button class="btn btn-warning btn-lg" onclick="mostrarGen('json')">Cargar JSON</button>
+  <!-- Botón para ver el código fuente -->
+  <button class="btn btn-secondary btn-sm" onclick="mostrarCodigo('json')">Código fuente</button>
+  <div id="contenido-json" class="contenido"></div>
+</div>
+
+<!-- Sección para cargar contenido desde un archivo TXT -->
+<div class="seccion">
+  <h2>Cargar contenido desde un archivo TXT</h2>
+  <button class="btn btn-danger btn-lg" onclick="mostrarGen('txt')">Cargar TXT</button>
+  <button class="btn btn-secondary btn-sm" onclick="mostrarCodigo('txt')">Código fuente</button>
+  <div id="contenido-txt" class="contenido"></div>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

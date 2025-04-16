@@ -1,0 +1,297 @@
+/* Reset global */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* Sin scroll innecesario */
+  font-family: Consolas, 'Courier New', monospace; /* Fuente típica de consola/código */
+}
+
+/* Contenedor principal: flexbox */
+.page-container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* Contenido principal */
+.main-content {
+  flex: 1;
+  background-color: #1E1E1E; /* Negro oscuro, fondo general */
+  color: #FF79C6; /* Texto rosa elegante */
+
+  padding: 2rem;
+  overflow: auto; /* Permitir scroll si el contenido se expande */
+}
+
+/* Distribución del menú */
+.menu-lateral {
+  display: flex;
+  flex-direction: column; /* Elementos en una columna */
+  justify-content: space-between; /* Distribuye los elementos */
+  align-items: center; /* Centra horizontalmente los elementos */
+  width: 30%; /* Ancho del menú lateral */
+  height: 100vh; /* Altura completa de la ventana */
+  background-color: #121212; /* Fondo lateral */
+  position: relative;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Redes sociales al fondo */
+.social-links {
+  display: flex;
+  justify-content: center; /* Centra los iconos horizontalmente */
+  align-items: center; /* Centra verticalmente si el contenedor tiene altura fija */
+  gap: 10px; /* Separación entre los iconos */
+  margin-bottom: 1rem; /* Separación inferior */
+}
+
+/* Estilo para los enlaces de redes */
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px; /* Aumentamos el tamaño del contenedor de los iconos */
+  height: 60px; /* Aumentamos el tamaño del contenedor de los iconos */
+  background-color: #1C1C1C; /* Fondo oscuro para los iconos */
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  text-decoration: none; /* Sin subrayado para todos los enlaces */
+  border: none; /* Elimina posibles bordes azules en los enlaces */
+  outline: none; /* Elimina el contorno que algunos navegadores aplican por accesibilidad */
+
+}
+
+/* Hover en los iconos */
+.social-links a:hover {
+  background-color: #FF79C6; /* Fondo rosa al hacer hover */
+  transform: scale(1.1); /* Aumenta ligeramente el tamaño */
+}
+
+/* Imagen de los iconos */
+.social-links a img {
+  width: 40px; /* Tamaño de los logos */
+  height: 40px;
+}
+
+.social-links a span{
+  font-size: 3.5rem;
+  text-decoration: none; /* Sin subrayado en los textos dentro del enlace */
+  display: inline-block; /* Asegura que el span se comporte correctamente */
+  color: #FFFFFF; /* Cambia el emoji a blanco */
+  filter: grayscale(100%); /* Convierte el color a escala de grises */
+  text-shadow:
+    -2px -2px 0 #FFFFFF, /* Esquinas superiores */
+    2px -2px 0 #FFFFFF,  /* Esquinas superiores */
+    -2px 2px 0 #FFFFFF,  /* Esquinas inferiores */
+    2px 2px 0 #FFFFFF,   /* Esquinas inferiores */
+    0 -2px 0 #FFFFFF,    /* Superior */
+    0 2px 0 #FFFFFF,     /* Inferior */
+    -2px 0 0 #FFFFFF,    /* Izquierda */
+    2px 0 0 #FFFFFF;     /* Derecha */
+
+}
+
+/* Texto de autoría */
+.author-text {
+  margin-top: 15px; /* Separación del texto y los íconos */
+  font-size: 14px; /* Tamaño del texto */
+  color: #AAAAAA; /* Gris suave */
+  font-weight: normal; /* No bold para un look más profesional */
+}
+
+.author-text:hover {
+  color: #FFFFFF; /* Blanco puro al pasar el mouse */
+}
+
+
+/* Imagen con ajuste */
+.menu-lateral .foto {
+  width: 100%;
+  height: 40%; /* Imagen ocupa el 40% del menú lateral */
+  object-fit: cover; /* Ajusta la proporción de la imagen */
+  object-position: center;
+  position: relative; /* Permite posicionamiento de elementos sobre ella */
+  z-index: 1; /* La imagen está detrás del texto */
+
+  /* Glow inicial en azul oscuro */
+  box-shadow: 0 0 60px 20px rgba(0, 51, 102, 0.8); /* Glow suave */
+  transition: box-shadow 0.3s ease-in-out; /* Transiciones suaves */
+}
+/* Gradiente estático dinámico */
+.menu-lateral .foto:before {
+  content: "";
+  position: absolute;
+  inset: -12px;
+  padding: 10px;
+  border-radius: 10px;
+  background: conic-gradient(
+    #003366,
+    rgba(0, 0, 0, 0) 30deg 120deg,
+    #0055cc 150deg 180deg,
+    rgba(0, 0, 0, 0) 210deg 300deg,
+    #003366 330deg
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: intersect;
+  z-index: 2;
+  transition: background 0.3s ease, transform 0.5s linear; /* Suavidad en hover */
+  pointer-events: none;
+
+}
+
+.menu-lateral .foto:after {
+  content: "";
+  position: absolute;
+  inset: -100px;
+  background:
+    radial-gradient(200px at left 200px top 150px, #003366 15%, rgba(0, 0, 0, 0)),
+    radial-gradient(200px at right 200px bottom 150px, #0055cc 25%, rgba(0, 0, 0, 0));
+  filter: blur(100px); /* Glow externo */
+  opacity: 0.7;
+  z-index: 3;
+  transition: background 0.3s ease-in-out, opacity 0.3s;
+}
+
+/* Hover: Cambia el glow al tono rosa */
+.menu-lateral .foto:hover {
+  /* Glow más brillante en rosa */
+  box-shadow: 0 0 100px 25px rgba(255, 83, 187, 0.9);
+}
+
+.menu-lateral .foto:hover:before {
+  /* Gradiente dinámico en rosa */
+  background: conic-gradient(
+    #ff53bb,
+    rgba(0, 0, 0, 0) 30deg 120deg,
+    #ff007f 150deg 180deg,
+    rgba(0, 0, 0, 0) 210deg 300deg,
+    #ff53bb 330deg
+  );
+  transform: rotate(360deg); /* Rotación del gradiente */
+  transition: transform 1s linear; /* Girar con suavidad */
+}
+
+.menu-lateral .foto:hover:after {
+  /* Glow externo en rosa */
+  background:
+    radial-gradient(200px at left 200px top 150px, #ff53bb 25%, rgba(0, 0, 0, 0)),
+    radial-gradient(200px at right 200px bottom 150px, #ff007f 40%, rgba(0, 0, 0, 0));
+  opacity: 0.9; /* Más visible para hover */
+}
+
+
+/* Degradado sutil entre imagen y menú */
+.imagen-sombra {
+  position: absolute;
+  top: 25%; /* Ubicación justo debajo de la imagen */
+  width: 100%;
+  height: 15px; /* Tamaño del degradado */
+  background: linear-gradient(to bottom, rgba(26, 26, 26, 0), #1a1a1a 100%);
+  z-index: 0; /* Detrás de la imagen */
+}
+
+/* Estilo del título */
+.menu-lateral h1 {
+  font-size: 1.5rem;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+/* Ajustar el menú */
+.menu-lateral ul {
+  list-style: none; /* Sin estilos de lista */
+  padding: 0;
+  margin: 0;
+  flex: 1; /* El menú ocupa todo el espacio disponible */
+  display: flex;
+  flex-direction: column;
+}
+
+
+.menu-lateral ul li {
+  flex: 1; /* Cada botón ocupa una proporción igual del espacio disponible */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.menu-lateral ul li a {
+  color: #fff;
+  text-decoration: none; /* Sin subrayado */
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+
+.menu-lateral ul li a:hover {
+  background-color: #FF92D0; /* Rosa claro (hover) */
+  color: #ffffff; /* Texto blanco al pasar el ratón */
+}
+
+/* Responsive: ajustes en pantallas pequeñas */
+@media (max-width: 768px) {
+  .menu-lateral {
+    width: 50%; /* Menú más ancho en pantallas medianas */
+  }
+  .menu-lateral img {
+    height: 20%; /* Imagen más pequeña en pantallas pequeñas */
+  }
+  .imagen-sombra {
+    top: 20%; /* Ajustar degradado al tamaño reducido */
+  }
+}
+
+@media (max-width: 480px) {
+  .menu-lateral {
+    width: 100%; /* El menú ocupa todo el ancho */
+    height: auto; /* Ajustar automáticamente */
+  }
+  .main-content {
+    display: none; /* Ocultar contenido principal en pantallas pequeñas */
+  }
+}
+
+/* Texto destacado: Miguel Morales */
+.menu-lateral .titulo-destacado {
+
+  width: 100%; /* Ocupa casi todo el ancho del menú */
+  text-align: center;
+  font-size: 4rem; /* Texto grande y llamativo */
+  font-weight: 900; /* Máximo grosor del texto */
+  color: #FF92D0; /* Color interno de las letras */
+  text-transform: uppercase; /* Todas las letras en mayúscula */
+  z-index: 4; /* Garantiza que el texto esté sobre la imagen */
+  font-family: 'Impact', 'Arial Black', sans-serif; /* Estilo grueso parecido a Looney Tunes */
+  background: linear-gradient(to bottom, black, white); /* Degradado de negro a blanco */
+  -webkit-background-clip: text; /* Clip del fondo al texto */
+  -webkit-text-fill-color: white; /* El relleno puede cambiarse o mantenerse invisible */
+
+  -webkit-text-stroke: 1px black; /* Configura el grosor del borde */
+
+}
+
+/* Ajustes responsivos para el texto */
+@media (max-width: 768px) {
+  .menu-lateral .titulo-destacado {
+    font-size: 1.5rem; /* Reducir tamaño en pantallas medianas */
+    padding: 0.4rem; /* Reducir relleno */
+    bottom: 5%; /* Ajustar superposición */
+  }
+}
+
+@media (max-width: 480px) {
+  .menu-lateral .titulo-destacado {
+    font-size: 1.2rem; /* Reducir tamaño en pantallas pequeñas */
+    padding: 0.3rem; /* Reducir relleno aún más */
+  }
+}
