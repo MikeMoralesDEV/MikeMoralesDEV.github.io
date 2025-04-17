@@ -25,17 +25,19 @@ html, body {
 /* Contenido principal */
 .main-content {
   flex: 1;
-  background: #121212; /* Degradado sutil de fondo */
-  color: #ff5733; /* Texto rosa */
+  background: #121212; /* Mantén el fondo oscuro */
+  color: #FFFFFF; /* Texto en blanco */
   padding: 2rem;
   overflow: auto;
-  text-align: center; /* Alinea internamente el texto al centro */
+  text-align: center; /* Centra el texto internamente */
   margin: 0 auto; /* Centra el contenedor horizontalmente */
   display: flex; /* Usamos Flexbox para centrar el contenido */
   justify-content: center; /* Centro horizontal */
   align-items: center; /* Centro vertical */
 
+
 }
+
 
 /* Distribución del menú */
 .menu-lateral {
@@ -377,6 +379,19 @@ html, body {
 
 }
 
+/* Especificidad reforzada para el texto en .main-content */
+.main-content p {
+  color: #FFFFFF !important; /* Texto blanco */
+  font-weight: normal; /* Peso de fuente estándar */
+  text-shadow:
+    -1px -1px 2px rgba(255, 0, 0, 0.5), /* Sombras superiores más tenues */
+    1px -1px 2px rgba(255, 0, 0, 0.5),  /* Sombras superiores hacia la derecha */
+    -1px 1px 2px rgba(255, 0, 0, 0.5),  /* Sombras inferiores izquierda */
+    1px 1px 2px rgba(255, 0, 0, 0.5);   /* Sombras inferiores derecha */
+  transition: color 0.3s ease, text-shadow 0.3s ease; /* Suaviza los cambios */
+
+}
+
 
 /* Clase personalizada para resaltar palabras */
 .resaltado {
@@ -384,15 +399,26 @@ html, body {
   display: inline-block; /* Permitir una animación más fluida */
   transform: rotate(-5deg); /* Inclinar ligeramente el texto */
   transition: transform 0.3s ease, font-style 0.3s ease; /* Animación suave */
-  color: #FF79C6; /* Un color llamativo, por ejemplo, naranja */
+  color: #FF4545; /* Texto rojo */
   font-weight: bold; /* También lo hacemos un poco más grueso */
+  text-decoration: none; /* Elimina cualquier subrayado */
+  border: none; /* Asegúrate de que no haya borde */
+  text-shadow: none; /* Quita cualquier sombra si existía */
+  text-shadow:
+    0px 0px 5px rgba(255, 69, 69, 0.6),  /* Luz roja difusa alrededor */
+    0px 0px 15px rgba(255, 69, 69, 0.4); /* Luz roja más sutil extendida */
+
 }
 
 /* Efecto hover: enderezar el texto */
 .resaltado:hover {
   transform: rotate(0); /* Volver a la posición natural */
   font-style: normal; /* Quitar la cursiva */
-  color: #ff5733; /* Cambiar a un color diferente para reaccionar al hover */
+  color: #FFFFFF !important; /* Texto blanco, prioridad máxima */
+  text-shadow:
+    0px 0px 10px rgba(255, 69, 69, 0.8),   /* Luz roja más fuerte */
+    0px 0px 20px rgba(255, 69, 69, 0.6);   /* Luz roja extendida aún más */
+
 }
 
 .light-overlay {
