@@ -513,3 +513,78 @@ section p {
   font-weight: bold;
 }
 
+/* Estilo general de la sección Proyectos */
+#proyectos {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+#proyectos h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+#proyectos p {
+  margin-bottom: 30px;
+}
+
+/* Contenedor de proyectos */
+.proyecto {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+  padding: 20px;
+  border: 1px solid; /* Conserva el color existente */
+  border-radius: 10px;
+  background: transparent; /* Conserva transparencia */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+.proyecto-icono {
+  width: 100px;
+  height: 100px;
+}
+
+/* Contenido del texto */
+.proyecto-contenido {
+  text-align: left;
+}
+
+.proyecto-contenido h3 {
+  font-size: 1.5rem;
+  margin: 0 0 10px;
+  text-align: center;
+}
+
+.proyecto-contenido p {
+  margin: 0;
+}
+
+/* Proyecto impar: Imagen a la izquierda */
+#proyectos .proyecto:nth-child(odd) {
+  flex-direction: row;
+}
+
+#proyectos .proyecto:nth-child(odd) .proyecto-icono {
+  margin-right: 20px; /* Espacio entre imagen y texto */
+}
+
+/* Proyecto par: Imagen a la derecha */
+#proyectos .proyecto:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+#proyectos .proyecto:nth-child(even) .proyecto-icono {
+  margin-left: 20px; /* Espacio entre imagen y texto */
+}
+
+@media (max-width: 768px) {
+  .proyecto {
+    flex-direction: column; /* Apila imagen y texto */
+    text-align: center; /* Centraliza contenido */
+  }
+
+  .proyecto-icono {
+    margin: 0 0 20px 0; /* Quita márgenes laterales */
+  }
+}
