@@ -9,12 +9,10 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener("mousemove", (e) => {
     const x = e.clientX / window.innerWidth * 100; // Porcentaje en ancho
     const y = e.clientY / window.innerHeight * 100; // Porcentaje en alto
-    console.log(x, y);
     // Actualiza la posición del foco
     lightOverlay.style.background = `
       radial-gradient(circle at ${x}% ${y}%, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 10%, rgba(255, 255, 255, 0) 15%)
       `;
-    console.log(lightOverlay.style.background);
 
   });
 
