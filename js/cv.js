@@ -9,6 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const secciones = document.querySelectorAll('.main-content section');
 
 
+
+
   // Seguir el movimiento del ratón y actualiza la posición del gradiente
   document.addEventListener("mousemove", (e) => {
     const x = e.clientX / window.innerWidth * 100; // Porcentaje en ancho
