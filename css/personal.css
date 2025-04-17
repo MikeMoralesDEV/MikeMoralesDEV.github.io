@@ -55,19 +55,22 @@ html, body {
 
 /* Línea divisoria */
 .linea-divisoria {
-  width: 10%; /* Ancho suficiente para las teclas grandes */
-  height: 100%; /* Línea divisoria ocupa todo el alto */
-  background: #121212; /* Sin color de fondo */
-  display: flex; /* Centrado horizontal y vertical del SVG */
-  align-items: center; /* Centrado vertical */
-  justify-content: center; /* Centrado horizontal */
-  overflow: hidden; /* Evita desbordamientos */
+  display: inline-flex; /* Permite que el contenedor se adapte al contenido */
+  align-items: flex-start; /* Alinea los SVG en la parte superior del div */
+  justify-content: flex-start; /* Asegura que los SVG estén pegados al borde izquierdo */
+  background: #121212; /* Fondo opcional, se puede ajustar o eliminar */
+  margin: 0; /* Elimina cualquier margen externo */
+  padding: 0; /* Elimina cualquier padding interno */
+  border: none; /* Sin líneas alrededor */
 }
 
 .linea-divisoria svg {
-  width: 100%; /* Permite al SVG ocupar todo el ancho del contenedor */
-  height: 100%; /* Escalado vertical completo */
-  z-index: 3;
+  width: auto; /* Deja que el ancho del contenido interno se ajuste automáticamente */
+  height: 100%; /* Escala el SVG verticalmente */
+  margin: 0; /* Asegúrate de eliminar cualquier margen */
+  padding: 0; /* Asegúrate de eliminar cualquier padding */
+  z-index: 3; /* Mantiene el SVG en el mismo nivel visual */
+
 
 }
 .tecla:active rect {
@@ -363,7 +366,7 @@ html, body {
 }
 
 /* Estilo para los párrafos dentro de la sección */
-#inicio p {
+section p {
   text-align: center; /* Alinea internamente el texto al centro */
   margin-bottom: 1.5em; /* Espaciado entre párrafos (1.5 veces el tamaño de la fuente) */
   line-height: 1.8; /* Aumentar el interlineado para una mejor legibilidad */
@@ -372,8 +375,8 @@ html, body {
 
 }
 
-/* Especificidad reforzada para el texto en .main-content */
-.main-content p {
+/* Especificidad reforzada para el texto en cualquier section */
+section p {
   color: #FFFFFF !important; /* Texto blanco */
   font-weight: normal; /* Peso de fuente estándar */
   text-shadow:
@@ -425,3 +428,54 @@ html, body {
   transition: background 0.1s ease-out; /* Movimiento más suave */
   z-index: 2; /* Asegura que esté detrás del texto */
 }
+
+#contacto ul {
+  list-style: none; /* Quita los puntos de la lista */
+  padding-left: 0;  /* Elimina cualquier padding predeterminado */
+  text-align: left; /* Asegura que el contenido esté alineado a la izquierda */
+  display: inline-block; /* Evita que los <li> queden distribuidos como en flexbox */
+}
+
+#contacto ul li {
+  padding-left: 20px; /* Añade una sangría a la izquierda */
+  margin-bottom: 8px; /* Espaciado opcional entre ítems */
+  text-align: left; /* Contenido del <li> a la izquierda */
+}
+
+
+#contacto ul li a{
+  color: #FF4545 !important;
+  text-decoration: none;
+}
+
+#contacto {
+  text-align: center; /* Asegura que el contenedor 'contacto' esté centrado */
+  margin: 0 auto;     /* Centra el contenedor horizontalmente */
+  width: fit-content; /* Ajusta el tamaño según el contenido */
+}
+
+#contacto img, object {
+  width: 40px; /* Tamaño uniforme de ancho */
+  height: 40px; /* Tamaño uniforme de alto */
+  display: inline-block; /* Para que los íconos estén en línea con el texto */
+  vertical-align: middle; /* Alineación vertical al texto */
+  margin-right: 10px; /* Separación del texto */
+}
+
+
+/* Animaciones sections */
+.main-content section {
+  transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+  opacity: 1; /* Sección inicialmente visible */
+}
+
+.main-content section.oculto {
+  opacity: 0; /* Gradualmente desaparece */
+  transform: translateY(10px); /* Se mueve hacia abajo */
+}
+
+.main-content section[hidden] {
+  display: none; /* Esto elimina el elemento completamente después de la transición */
+  opacity: 0; /* Redundante pero útil por si algún navegador aplica `hidden` inmediatamente */
+}
+

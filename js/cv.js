@@ -4,6 +4,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const textoModal = document.getElementById('texto-modal'); // Selector del contenido del modal
   const cuadroModal = document.getElementById('modal-teclado'); // Selector del contenido del modal
   const lightOverlay = document.querySelector(".light-overlay");
+  // Selecciona todos los botones y las secciones
+  const botonesMenu = document.querySelectorAll('.menu-lateral a');
+  const secciones = document.querySelectorAll('.main-content section');
+
 
   // Seguir el movimiento del ratón y actualiza la posición del gradiente
   document.addEventListener("mousemove", (e) => {
@@ -16,7 +20,41 @@ document.addEventListener('DOMContentLoaded', () => {
 
   });
 
-// Cerramos el modal si se hace clic fuera de las teclas
+  const manejarSecciones = (idSeccion) => {
+    // Ocultamos la sección actualmente visible
+    secciones.forEach((seccion) => {
+      if (!seccion.hidden) {
+        seccion.classList.add('oculto'); // Animación de desaparición
+        setTimeout(() => {
+          seccion.hidden = true; // Después de la animación, se elimina del DOM
+          seccion.classList.remove('oculto'); // Limpia para futuros cambios
+        }, 400); // Tiempo de transición (sincronizado con CSS)
+      }
+    });
+
+    // Mostramos la nueva sección tras la animación de salida
+    setTimeout(() => {
+      const nuevaSeccion = document.getElementById(idSeccion);
+      if (nuevaSeccion) {
+        nuevaSeccion.hidden = false; // Hacemos que esté en el DOM
+        nuevaSeccion.style.opacity = "0"; // Preparamos el inicio de la animación
+        setTimeout(() => {
+          nuevaSeccion.style.opacity = "1"; // Suavemente aparece
+        }, 10); // Pequeño retraso para asegurar que la transición se active
+      }
+    }, 400); // Este tiempo debe coincidir con el tiempo de desaparición
+  };
+
+  // Asociamos eventos de clic a los botones del menú
+  botonesMenu.forEach((boton) => {
+    boton.addEventListener('click', (e) => {
+      e.preventDefault(); // Cancelamos navegación por defecto
+      const idSeccion = boton.getAttribute('href').slice(1); // Extraemos ID del enlace
+      manejarSecciones(idSeccion); // Gestionamos las secciones activas
+    });
+  });
+
+  // Cerramos el modal si se hace clic fuera de las teclas
   document.body.addEventListener('click', (event) => {
     // Verificamos si el clic NO ocurrió dentro de una tecla
     if (!event.target.closest('.tecla')) {
