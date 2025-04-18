@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const cuadroModal = document.getElementById('modal-teclado'); // Selector del contenido del modal
   const lightOverlay = document.querySelector(".light-overlay");
   // Selecciona todos los botones y las secciones
-  const botonesMenu = document.querySelectorAll('.menu-lateral a');
+  const botonesMenu = document.querySelectorAll('.menu-lateral .secciones a');
   const secciones = document.querySelectorAll('.main-content section');
 
 
