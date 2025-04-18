@@ -96,17 +96,17 @@ body {
 
 /* Contenedor exclusivo para la flecha */
 .menu-lateral .flecha-cerrar {
-  position: absolute; /* Posiciona la flecha en el borde derecho */
-  top: 50%; /* Centrada verticalmente */
-  right: 0; /* Pegada al borde derecho */
-  transform: translateY(-50%); /* Centra la flecha verticalmente */
-  display: flex; /* Flexbox para centrar */
-  justify-content: center; /* Contenido centrado horizontal */
-  align-items: center; /* Contenido centrado vertical */
-  width: 150px; /* Área amplia de clic */
-  height: 150px; /* Área amplia */
-  cursor: pointer; /* Puntero de acción */
-  transition: background-color 0.5s ease-in-out, opacity 0.5s ease-in-out; /* Hover suave */
+  position: absolute; /* Posicionamiento absoluto */
+  top: 10px; /* Posiciona la flecha 10px desde la parte superior del menú */
+  right: 10px; /* Pegada al borde derecho, con 10px de separación */
+  display: flex; /* Flexbox para alinear el contenido */
+  justify-content: center; /* Centrado horizontal del contenido de la flecha */
+  align-items: center; /* Centrado vertical del contenido */
+  width: 50px; /* Área clicable más pequeña */
+  height: 50px; /* Proporcional al ancho */
+  cursor: pointer; /* Mano apuntando al hover */
+  transition: background-color 0.5s ease-in-out, opacity 0.5s ease-in-out; /* Transiciones suaves */
+
 }
 
 /* Hover ajustado */
@@ -732,5 +732,26 @@ button.btn.btn-dark.btn-snippet {
   border-radius: 8px;
 }
 
+/* Contenedor del logo */
+.logo-academia {
+  position: fixed; /* Fijar el logo en la parte inferior de la ventana */
+  bottom: 10px; /* Separación desde el borde inferior */
+  left: 125px; /* Centrarlo horizontalmente */
+  transform: translateX(-50%); /* Ajustar el centro del logo */
+  z-index: 1100; /* Asegurar que esté encima del menú lateral */
+  text-align: left;
+}
 
+.logo-academia img {
+  max-width: 250px; /* Ajustar el tamaño a un máximo de 100px */
+  height: auto; /* Mantener proporciones del logo */
+  opacity: 0.9; /* Hacerlo ligeramente transparente */
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out; /* Transiciones suaves */
+}
+
+/* Efecto al pasar el mouse */
+.logo-academia img:hover {
+  opacity: 1; /* Opacidad al máximo cuando se pasa el cursor */
+  transform: scale(1.1); /* Agrandar ligeramente en hover */
+}
 
