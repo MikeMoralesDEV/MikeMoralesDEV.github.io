@@ -1,3 +1,5 @@
+
+
 /* Reset global */
 * {
   margin: 0;
@@ -296,19 +298,18 @@ html, body {
 
 /* Texto destacado: Miguel Morales */
 .menu-lateral .titulo-destacado {
-
   width: 100%; /* Ocupa casi todo el ancho del menú */
   text-align: center;
   font-size: 4rem; /* Texto grande y llamativo */
-  font-weight: 900; /* Máximo grosor del texto */
   color: #FF92D0; /* Color interno de las letras */
   text-transform: uppercase; /* Todas las letras en mayúscula */
   z-index: 4; /* Garantiza que el texto esté sobre la imagen */
-  font-family: 'Impact', 'Arial Black', sans-serif; /* Estilo grueso parecido a Looney Tunes */
+  font-family: "Chicle", serif;
+  font-weight: 400;
+  font-style: normal;
   background: linear-gradient(to bottom, black, white); /* Degradado de negro a blanco */
   -webkit-background-clip: text; /* Clip del fondo al texto */
   -webkit-text-fill-color: white; /* El relleno puede cambiarse o mantenerse invisible */
-
   -webkit-text-stroke: 1px black; /* Configura el grosor del borde */
 
 }
@@ -669,6 +670,27 @@ section p {
   visibility: hidden;
 }
 
+/* Estilo exclusivo para los párrafos dentro de la sección experiencia */
+#experiencia p {
+  font-family: 'Poetsen One', sans-serif; /* Fuente personalizada */
+  font-weight: bold; /* Negrita */
+  font-size: 1.5rem; /* Tamaño de fuente */
+  line-height: 1.5; /* Espaciado entre líneas */
+  color: #FF6F61; /* Color de acento rojizo */
+  text-align: center; /* Centrar el texto */
+}
+
+#experiencia .row {
+  display: flex; /* Convierte `.row` en un contenedor flex */
+  flex-wrap: wrap; /* Permite que las columnas salten de línea en pantallas pequeñas */
+  align-items: stretch; /* Asegura que las columnas tengan la misma altura */
+}
+
+#experiencia .col-md-6 {
+  display: flex; /* Aplica flexbox a las columnas para controlar el contenido interno */
+  flex-direction: column; /* Asegura que el contenido (título y descripción) esté en columna */
+  justify-content: center; /* Centra el contenido verticalmente dentro de cada columna */
+}
 
 @media (max-width: 768px) {
   /* Ocultar menú lateral inicialmente */
@@ -691,6 +713,10 @@ section p {
   /* Menú lateral cuando está activo (visible) */
   .menu-lateral.activo {
     transform: translateX(0); /* Ocupa toda la pantalla */
+  }
+
+  .linea-divisoria{
+    visibility: hidden;
   }
 
   /* Opcional: Animación para los enlaces del menú */

@@ -11,6 +11,22 @@ document.addEventListener('DOMContentLoaded', () => {
   const menuToggle = document.querySelector(".menu-toggle");
   const menuLateral = document.querySelector(".menu-lateral");
   const enlacesMenu = document.querySelectorAll(".menu-lateral .secciones a");
+  const inicioDocencia = new Date("2018-09-17");
+  const hoy = new Date();
+
+  // Cálculo de la diferencia en años
+  let diferenciaAnios = hoy.getFullYear() - inicioDocencia.getFullYear();
+
+  // Verifica si el mes/día actual es anterior al del inicio, si es así, resta 1 año
+  if (hoy.getMonth() < inicioDocencia.getMonth() ||
+    (hoy.getMonth() === inicioDocencia.getMonth() && hoy.getDate() < inicioDocencia.getDate())) {
+    diferenciaAnios--;
+  }
+
+  // Establece el valor calculado en el span
+  document.getElementById("anos-docencia").textContent = diferenciaAnios;
+
+
 
   // Al hacer clic en el botón hamburguesa
   menuToggle.addEventListener("click", () => {
