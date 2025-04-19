@@ -7,8 +7,22 @@ document.addEventListener('DOMContentLoaded', () => {
   // Selecciona todos los botones y las secciones
   const botonesMenu = document.querySelectorAll('.menu-lateral .secciones a');
   const secciones = document.querySelectorAll('.main-content section');
+// Seleccionamos el botón hamburguesa y el menú lateral
+  const menuToggle = document.querySelector(".menu-toggle");
+  const menuLateral = document.querySelector(".menu-lateral");
+  const enlacesMenu = document.querySelectorAll(".menu-lateral .secciones a");
 
+  // Al hacer clic en el botón hamburguesa
+  menuToggle.addEventListener("click", () => {
+    menuLateral.classList.toggle("activo"); // Alternar la visibilidad del menú
+  });
 
+  // Al hacer clic en cualquier enlace del menú
+  enlacesMenu.forEach(link => {
+    link.addEventListener("click", () => {
+      menuLateral.classList.remove("activo"); // Cerramos el menú
+    });
+  });
 
 
   // Seguir el movimiento del ratón y actualiza la posición del gradiente

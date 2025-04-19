@@ -34,8 +34,9 @@ html, body {
   display: flex;
   justify-content: center;
   align-items: center;
-}
+  width: 100%; /* Asegura que use el ancho completo */
 
+}
 
 /* Distribución del menú */
 .menu-lateral {
@@ -50,6 +51,7 @@ html, body {
   padding: 2rem 1rem;
   text-align: center;
   overflow: visible;
+  max-width: 400px; /* Máximo ancho para evitar demasiado espacio */
 
 }
 
@@ -586,5 +588,159 @@ section p {
 
   .proyecto-icono {
     margin: 0 0 20px 0; /* Quita márgenes laterales */
+  }
+}
+/** RESPONSIVIDAD GENERAL **/
+/* RESPONSIVIDAD */
+
+/* Pantallas pequeñas, como móviles */
+@media (max-width: 768px) {
+  .menu-lateral {
+    display: inline-block; /* Cambia de flexbox a inline para que se ajuste solo al contenido visible */
+    width: auto; /* Deja que el ancho lo determine el contenido restante */
+    height: auto; /* Permite que se ajuste al contenido visible */
+    overflow: hidden; /* Asegura que no se acumulen restos de contenido */
+
+  }
+
+  .linea-divisoria {
+    display: none; /* Ocultar la línea divisoria para simplificar */
+  }
+
+  .main-content {
+    flex-direction: column; /* Apilar el contenido */
+    padding: 1rem; /* Menor padding en dispositivos pequeños */
+  }
+
+  .titulo-destacado {
+    font-size: 1.5rem; /* Reducir el tamaño de la fuente del título */
+  }
+
+  .social-links a {
+    width: 50px; /* Iconos más pequeños */
+    height: 50px;
+  }
+
+  .social-links a img {
+    width: 30px; /* Limitar el tamaño de los logos */
+    height: 30px;
+  }
+}
+
+/* Pantallas medianas, como tablets */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .menu-lateral {
+    display: flex; /* Ya lo tiene configurado */
+    flex-direction: column; /* Conserva la dirección */
+    align-items: center; /* Asegura el centrado */
+  }
+
+  .main-content {
+    flex-direction: column; /* Colocar el contenido verticalmente */
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 14px; /* Fuente más pequeña en móviles */
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 12px; /* Fuente aún más pequeña en pantallas pequeñas */
+  }
+}
+
+/* Botón hamburguesa flotante */
+.menu-toggle {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 101; /* Siempre encima del menú */
+  font-size: 2.5rem; /* Tamaño grande del icono */
+  cursor: pointer;
+  color: #FFFFFF; /* Blanco para mayor contraste */
+  background: #121212; /* Fondo oscuro */
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  visibility: hidden;
+}
+
+
+@media (max-width: 768px) {
+  /* Ocultar menú lateral inicialmente */
+  .menu-lateral {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #121212; /* Fondo oscuro */
+    color: #FFF; /* Texto claro */
+    z-index: 100; /* Detrás del botón hamburguesa */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(-100%); /* Oculto fuera de la pantalla */
+    transition: transform 0.3s ease-in-out;
+  }
+  /* Menú lateral cuando está activo (visible) */
+  .menu-lateral.activo {
+    transform: translateX(0); /* Ocupa toda la pantalla */
+  }
+
+  /* Opcional: Animación para los enlaces del menú */
+  .menu-lateral .secciones li {
+    margin: 1rem 0;
+    list-style: none;
+  }
+
+  .menu-lateral .secciones li a {
+    color: #FFF;
+    text-decoration: none;
+    font-size: 1.5rem;
+    transition: color 0.3s;
+  }
+
+  .menu-lateral .secciones li a:hover {
+    color: #FF6F61; /* Color de acento al pasar el ratón */
+  }
+
+  /* Aseguramos que .main-content ocupe toda la altura disponible */
+  .main-content {
+    flex: 1;
+    background: #121212;
+    color: #FFFFFF;
+    padding: 5vh 2rem; /* Padding vertical dinámico (20% de la altura) y horizontal fijo */
+    overflow-y: scroll; /* Activamos el scroll vertical si es necesario */
+    text-align: center;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column; /* Aseguramos la disposición vertical */
+    justify-content: flex-start; /* Contenido desde arriba */
+    align-items: center;
+    max-height: 100vh; /* Limita la altura al tamaño de la pantalla */
+    box-sizing: border-box;
+  }
+
+  .menu-toggle {
+    visibility: visible;
+  }
+  .menu-lateral .titulo-destacado{
+    font-size: clamp(1.5rem, 10vw, 8rem); /* Tamaño dinámico: mínimo 1.5rem, ajusta según ancho de pantalla, máximo 3rem */
+    font-weight: bold; /* Resalta el título */
+    color: #FFFFFF; /* Color claro para contraste */
+    text-align: center; /* Centrado del texto */
+    margin: 1rem 0; /* Espacio arriba y abajo */
+    word-break: break-word; /* Rompe el texto en palabras largas si es necesario */
+
+  }
+
+  html,body{
+    overflow: scroll;
   }
 }

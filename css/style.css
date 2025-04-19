@@ -755,3 +755,24 @@ button.btn.btn-dark.btn-snippet {
   transform: scale(1.1); /* Agrandar ligeramente en hover */
 }
 
+@media (max-width: 768px) {
+  .logo-academia{
+    visibility: hidden !important;
+  }
+  #content {
+    padding: 10px;
+    font-size: 0.9rem; /* Ajusta el tamaño del texto */
+  }
+
+  .titulo {
+    font-size: 2rem; /* Reduce el título */
+  }
+
+  .seccion {
+    font-size: 1rem; /* Reduce el estilo de las secciones */
+  }
+
+  .seccion button{
+    margin: 1rem 0;
+  }
+}
