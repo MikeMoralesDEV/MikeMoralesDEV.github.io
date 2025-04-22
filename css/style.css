@@ -15,6 +15,7 @@ body {
   min-height: 100vh;
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 
 .titulo {
@@ -134,6 +135,7 @@ body {
 
 /* Botón para abrir el menú */
 .btn-hamburguesa {
+
   font-size: 1.5rem;
   cursor: pointer;
   background: linear-gradient(135deg, #320064, #6f00ff); /* Tonos luminosos y vivos */
@@ -756,9 +758,7 @@ button.btn.btn-dark.btn-snippet {
 }
 
 @media (max-width: 768px) {
-  .logo-academia{
-    visibility: hidden !important;
-  }
+
   #content {
     padding: 10px;
     font-size: 0.9rem; /* Ajusta el tamaño del texto */
@@ -774,5 +774,19 @@ button.btn.btn-dark.btn-snippet {
 
   .seccion button{
     margin: 1rem 0;
+  }
+
+}
+
+@media (max-height: 780px) {
+  .logo-academia{
+    position: absolute;
+    left: auto;
+    bottom: auto;
+    top: 0;
+    right: 0;
+  }
+  .logo-academia img{
+    max-width: 100px;
   }
 }
