@@ -24,7 +24,7 @@ body {
   color: white;
   text-shadow: 2px 2px #141414; /* Sombra oscura */
   text-align: center; /* Centrado horizontalmente */
-  margin-top: 20px; /* Separación del borde superior */
+  padding-top: 20px; /* Separación del borde superior */
 }
 /* Menú lateral */
 .menu-lateral {
