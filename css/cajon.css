@@ -1,0 +1,129 @@
+/* Nos aseguramos que html y body ocupen toda la altura */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  /* Fondo con dos capas:
+     1. Degradado radial (foco) posicionado en el centro inferior.
+     2. Degradado lineal de azul marino en la parte inferior a negro en la superior.
+     Ambas capas se configuran para que no se repitan y cubran toda la pantalla. */
+  background:
+    radial-gradient(ellipse at bottom center, rgba(13, 46, 90, 0.8) 0%, transparent 80%) no-repeat,
+    linear-gradient(to top, rgba(13, 46, 90, 0.8), #000) no-repeat;
+  background-size: cover, cover;
+  background-position: bottom center, center;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main#content {
+  display: flex;
+  align-items: center;     /* Centrado vertical del contenido en main */
+  justify-content: center; /* Centrado horizontal */
+}
+
+/* Cajón de aplicaciones utilizando Bootstrap Grid */
+#app-drawer {
+  max-width: 800px;         /* o el ancho que prefieras */
+  margin: auto;             /* ya se centra horizontalmente por flex en body */
+  border: 4px dashed #fff;  /* borde más grueso */
+  border-radius: 15px;      /* sigue redondeado */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);  /* sombra para resaltar */
+  padding: 20px;
+  background-color: transparent; /* para dejar ver el fondo */
+}
+
+.app-icon {
+  cursor: pointer;
+  text-align: center;
+}
+
+.app-icon div {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+
+.app-icon img {
+  width: 70px;
+  height: 70px;
+  border-radius: 20%;
+  transition: transform 0.3s;
+}
+
+.app-icon:hover img {
+  transform: scale(1.1);
+}
+
+/* Animaciones de transición para cambiar de vista */
+.fade-in {
+  animation: fadeIn 0.5s forwards;
+}
+
+.fade-out {
+  animation: fadeOut 0.5s forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(20px); }
+}
+
+/* Vista de curso a pantalla completa */
+#course-view {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Se aprovecha el fondo definido en body */
+  background-color: transparent;
+  display: none;
+  padding-top: 60px;
+}
+
+/* Botón de menú hamburguesa para regresar al cajón */
+.hamburger {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+#back-button i {
+  display: inline-block;
+  font-size: 2.5rem;            /* Mayor tamaño para un efecto "más grueso" */
+  color: #fff;                  /* Color blanco */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);  /* Sombra de texto para realce */
+  filter: drop-shadow(0 0 4px rgba(0,0,0,0.7)); /* Sombra extra para dar volumen */
+}
+
+@media (max-width: 576px) {
+  #back-button i {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  #back-button i {
+    font-size: 2.5rem;
+  }
+}
+
+.course-info-wrapper {
+  display: flex;
+  align-items: center;      /* Centrado vertical */
+  justify-content: center;  /* Centrado horizontal (si lo deseas) */
+  height: 100%;
+}
