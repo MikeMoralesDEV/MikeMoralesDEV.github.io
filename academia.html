@@ -22,102 +22,118 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- CSS de Prism.js -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chicle&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Unified Stylesheet -->
+  <link rel="stylesheet" href="css/unified-style.css">
 
   <meta name="theme-color" content="#fafafa">
 </head>
 <body>
-<!-- Botón para abrir el menú -->
-<button id="btnHamburguesa" class="btn-hamburguesa" onclick="abrirMenu()">☰ Menú</button>
+<div class="menu-toggle">☰</div> <!-- Botón hamburguesa-->
 
-<!-- Menú lateral -->
-<div id="menuLateral" class="menu-lateral">
-  <div class="flecha-cerrar">
-    <a href="javascript:void(0)" class="cerrar" onclick="cerrarMenu()">
-      <svg xmlns="http://www.w3.org/2000/svg" class="icono-flecha" viewBox="0 0 100 80">
-        <!-- Línea horizontal grande -->
-        <line x1="80" y1="40" x2="20" y2="40" stroke="white" stroke-width="8"/>
-        <!-- Puntas diagonales grandes -->
-        <polyline points="30 20, 20 40, 30 60" fill="none" stroke="white" stroke-width="8" stroke-linecap="round"
-                  stroke-linejoin="round"/>
+<!-- Contenedor de toda la página -->
+<div class="page-container">
+  <!-- Menú lateral -->
+  <div class="menu-lateral">
+    <!-- Foto -->
+    <img class="foto" src="img/principal.jpg" alt="Foto de Miguel Morales">
+    <!-- Nombre -->
+    <h1 class="titulo-destacado">Miguel Morales</h1>
+    <!-- Lista del menú -->
+    <ul class="secciones">
+      <li><a href="index.html">🏠 Inicio</a></li>
+      <li><a href="index.html#sobremi">🧔‍♂️ Sobre mí</a></li> <!-- Modified to link to index.html sections -->
+      <li><a href="index.html#proyectos">🗃️ Proyectos</a></li> <!-- Modified to link to index.html sections -->
+      <li><a href="academia.html">🎓 Academia</a></li>
+      <li><a href="cajon.html">🚀 Courses</a></li>
+      <li><a href="index.html#contacto">✉️ Contacto</a></li> <!-- Modified to link to index.html sections -->
+    </ul>
+    <!-- Botones de redes sociales -->
+    <div class="social-links">
+      <a href="https://github.com/MikeMoralesDEV" target="_blank">
+        <img src="img/github.svg" alt="GitHub">
+      </a>
+      <a href="https://www.linkedin.com/in/miguel-morales-carmona-a8949b103/" target="_blank">
+        <img src="img/linkedin.png" alt="LinkedIn">
+      </a>
+    </div>
+    <!-- Texto de autoría -->
+    <p class="author-text">© 2025 MikeMoralesDev</p>
+  </div>
+
+  <div class="main-content">
+    <!-- Contenedor del logo -->
+    <div class="logo-academia">
+      <img src="img/logoAcademy.svg" alt="Logo Academia" />
+    </div>
+
+    <div id="content">
+      <div class="titulo" id="tituloCabecera">Bienvenidos a MikeMoralesDev</div>
+
+      <div class="seccion">
+        Selecciona en el menú por dónde comenzar
+      </div>
+    </div>
+
+    <!-- Botón flotante -->
+    <div class="btn-flotante" id="botonDidactico" onclick="mostrarInformacionDidactica()" hidden>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40">
+        <!-- Birrete con líneas destacadas -->
+        <path
+          d="M12 3L1 9l11 6 9-4.91V15.4h2V9L12 3zM12 5.12L18.48 9l-6.48 3.55L5.52 9 12 5.12zM5 16v2h14v-2H5z"
+          fill="white"
+          stroke="#000000"
+          stroke-width="0.5"
+          stroke-linejoin="round"
+          stroke-linecap="round"
+        />
       </svg>
-    </a>
-  </div>
-  <h2 class="titulo-menu">Secciones</h2>
-  <div class="menu">
-    <a href="#inicio">Inicio</a>
-    <a href="#XHR">XMLHttpRequest</a>
-    <a href="#fetch">Fetch</a>
-    <a href="#anadirXHR">Añadir AJAX</a>
-    <a href="#externo">CORS</a>
-    <a href="#post">POST Simulado</a>
-  </div>
-</div>
-<!-- Contenedor del logo -->
-<div class="logo-academia">
-  <img src="img/logoAcademy.svg" alt="Logo Academia" />
-</div>
-
-
-<div id="content">
-  <div class="titulo" id="tituloCabecera">Bienvenidos a MikeMoralesDev</div>
-
-  <div class="seccion">
-    Selecciona en el menú por dónde comenzar
-  </div>
-</div>
-
-
-<!-- Botón flotante -->
-<div class="btn-flotante" id="botonDidactico" onclick="mostrarInformacionDidactica()" hidden>
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40">
-    <!-- Birrete con líneas destacadas -->
-    <path
-      d="M12 3L1 9l11 6 9-4.91V15.4h2V9L12 3zM12 5.12L18.48 9l-6.48 3.55L5.52 9 12 5.12zM5 16v2h14v-2H5z"
-      fill="white"
-      stroke="#000000"
-      stroke-width="0.5"
-      stroke-linejoin="round"
-      stroke-linecap="round"
-    />
-  </svg>
-</div>
-
-<!-- Modal para la información -->
-<div id="modalInformacionDidactica" class="modal-didactico">
-  <div class="contenido-modal">
-    <span class="cerrar-modal" onclick="cerrarModal()">×</span>
-    <h3>Ayuda Didáctica</h3>
-    <div id="contenidoDidactico">
-      <!-- Aquí irá la información didáctica -->
     </div>
-  </div>
-</div>
 
-<!-- Modal para mostrar el código fuente -->
-<div class="modal fade" id="modalCodigo" tabindex="-1" aria-labelledby="modalCodigoLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="modalCodigoLabel">Código fuente</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <pre><code id="codigoSnippet" class="language-javascript"></code></pre>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" onclick="copiarCodigo()">Copiar código</button>
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+    <!-- Modal para la información -->
+    <div id="modalInformacionDidactica" class="modal-didactico">
+      <div class="contenido-modal">
+        <span class="cerrar-modal" onclick="cerrarModal()">×</span>
+        <h3>Ayuda Didáctica</h3>
+        <div id="contenidoDidactico">
+          <!-- Aquí irá la información didáctica -->
+        </div>
       </div>
     </div>
-  </div>
-</div>
+
+    <!-- Modal para mostrar el código fuente -->
+    <div class="modal fade" id="modalCodigo" tabindex="-1" aria-labelledby="modalCodigoLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalCodigoLabel">Código fuente</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <pre><code id="codigoSnippet" class="language-javascript"></code></pre>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" onclick="copiarCodigo()">Copiar código</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> <!-- End of main-content -->
+</div> <!-- End of page-container -->
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="js/academia.js"></script>
+<script src="js/cv.js"></script> <!-- Added cv.js for menu toggle functionality -->
 </body>
 </html>

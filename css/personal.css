@@ -72,9 +72,22 @@ html, body {
   margin: 0; /* Asegúrate de eliminar cualquier margen */
   padding: 0; /* Asegúrate de eliminar cualquier padding */
   z-index: 3; /* Mantiene el SVG en el mismo nivel visual */
-
-
 }
+
+/* Styling for the keyboard keys */
+.tecla rect[fill="#F4F4F4"] {
+  fill: #1E1E1E !important; /* Slightly Lighter Dark Background */
+  stroke: #2E2E2E !important; /* Slightly lighter border for the key */
+}
+
+.tecla rect[fill="none"] {
+  stroke: #FF6F61 !important; /* Accent color for inner decorative rectangle */
+}
+
+.tecla text {
+  fill: #FFFFFF !important; /* White text for key labels */
+}
+
 .tecla:active rect {
   transform: scale(0.95); /* Reduce el tamaño ligeramente al hacer clic */
   transition: transform 0.1s ease;

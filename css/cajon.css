@@ -6,17 +6,9 @@ html, body {
 }
 
 body {
-  font-family: 'Nunito', sans-serif;
-  /* Fondo con dos capas:
-     1. Degradado radial (foco) posicionado en el centro inferior.
-     2. Degradado lineal de azul marino en la parte inferior a negro en la superior.
-     Ambas capas se configuran para que no se repitan y cubran toda la pantalla. */
-  background:
-    radial-gradient(ellipse at bottom center, rgba(13, 46, 90, 0.8) 0%, transparent 80%) no-repeat,
-    linear-gradient(to top, rgba(13, 46, 90, 0.8), #000) no-repeat;
-  background-size: cover, cover;
-  background-position: bottom center, center;
-  color: #fff;
+  font-family: Consolas, 'Courier New', monospace; /* Theme default font */
+  background: #121212; /* Theme primary background */
+  color: #FFFFFF; /* Theme primary text color */
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -24,28 +16,31 @@ body {
 
 main#content {
   display: flex;
-  align-items: center;     /* Centrado vertical del contenido en main */
-  justify-content: center; /* Centrado horizontal */
+  align-items: center;     
+  justify-content: center; 
+  flex-grow: 1; /* Ensure main content can grow */
 }
 
 /* Cajón de aplicaciones utilizando Bootstrap Grid */
 #app-drawer {
-  max-width: 800px;         /* o el ancho que prefieras */
-  margin: auto;             /* ya se centra horizontalmente por flex en body */
-  border: 4px dashed #fff;  /* borde más grueso */
-  border-radius: 15px;      /* sigue redondeado */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);  /* sombra para resaltar */
+  max-width: 800px;         
+  margin: auto;             
+  border: 4px dashed #FF6F61;  /* Accent color for border */
+  border-radius: 15px;      
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);  
   padding: 20px;
-  background-color: transparent; /* para dejar ver el fondo */
+  background-color: transparent; 
 }
 
 .app-icon {
   cursor: pointer;
   text-align: center;
+  color: #FFFFFF; /* Ensure app name text is white */
 }
 
 .app-icon div {
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  color: #FFFFFF; /* Ensure app name text is white */
 }
 
 
@@ -86,11 +81,38 @@ main#content {
   left: 0;
   width: 100%;
   height: 100%;
-  /* Se aprovecha el fondo definido en body */
-  background-color: transparent;
+  background-color: #121212; /* Theme primary background */
   display: none;
-  padding-top: 60px;
+  padding-top: 60px; /* Keep padding if needed for layout */
+  color: #FFFFFF; /* Default text color for this view */
 }
+
+/* Course title */
+#course-view #course-title {
+  font-family: 'Oswald', sans-serif;
+  color: #FFFFFF;
+}
+
+/* Course description */
+#course-view #course-description {
+  font-family: Consolas, 'Courier New', monospace;
+  color: #FFFFFF;
+}
+
+/* Course view button */
+#course-view .btn-primary {
+  background-color: #FF6F61;
+  color: #FFFFFF;
+  border-color: #FF6F61;
+  font-family: 'Oswald', sans-serif;
+}
+
+#course-view .btn-primary:hover,
+#course-view .btn-primary:focus {
+  background-color: #e05a50; /* Darker accent for hover/focus */
+  border-color: #e05a50;
+}
+
 
 /* Botón de menú hamburguesa para regresar al cajón */
 .hamburger {

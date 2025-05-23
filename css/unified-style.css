@@ -1,0 +1,632 @@
+/* Reset global (from personal.css) */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* HTML5 Boilerplate Base Styles & Helpers (from style.css) */
+/*! HTML5 Boilerplate v9.0.1 | MIT License | https://html5boilerplate.com/ */
+/* main.css 3.0.0 | MIT License | https://github.com/h5bp/main.css#readme */
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+html, body {
+  width: 100%;
+  height: 100%;
+  font-family: Consolas, 'Courier New', monospace;
+  background: #121212; /* Unified dark background */
+  color: #FFFFFF; /* Default text color */
+  margin: 0;
+  padding: 0;
+  line-height: 1.4; /* From H5BP */
+  font-size: 1em; /* From H5BP */
+  overflow-y: auto; /* Allow scrolling on body if content exceeds viewport */
+}
+
+/* Text Selection Styles (from style.css, themed) */
+::-moz-selection {
+  background: #FF6F61; /* Accent color for selection */
+  color: #FFFFFF;
+  text-shadow: none;
+}
+
+::selection {
+  background: #FF6F61; /* Accent color for selection */
+  color: #FFFFFF;
+  text-shadow: none;
+}
+
+/* A better looking default horizontal rule (from H5BP) */
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #333; /* Adjusted for dark theme */
+  margin: 1em 0;
+  padding: 0;
+}
+
+/* Remove the gap between audio, canvas, iframes, images, videos and the bottom of their containers (from H5BP) */
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
+
+/* Remove default fieldset styles (from H5BP) */
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/* Allow only vertical resizing of textareas (from H5BP) */
+textarea {
+  resize: vertical;
+}
+
+
+/* Contenedor principal: flexbox (from personal.css) */
+.page-container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden; /* Prevents scrollbars on the container itself */
+}
+
+/* Contenido principal (from personal.css, with overflow: auto) */
+.main-content {
+  flex: 1;
+  background: #121212;
+  color: #FFFFFF;
+  padding: 2rem;
+  overflow: auto; /* Allows main content to scroll */
+  text-align: center;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center; /* Centers content like sections if they don't fill width */
+  align-items: center; /* Vertically centers content if it's smaller than viewport */
+  flex-direction: column; /* Stack sections vertically */
+  width: 100%;
+}
+
+/* General paragraph, div, li, span styling within main-content for consistent text color and font */
+.main-content p,
+.main-content div,
+.main-content li,
+.main-content span {
+  color: #FFFFFF;
+  font-family: Consolas, 'Courier New', monospace;
+}
+
+/* Headings within main-content (Unified from style.css) */
+.main-content h1,
+.main-content h2,
+.main-content h3,
+.main-content h4,
+.main-content h5 {
+  font-family: 'Oswald', sans-serif;
+  color: #FFFFFF;
+}
+
+/* Links within main-content (Unified from style.css) */
+.main-content a {
+  color: #FF6F61; /* Accent color for links */
+}
+.main-content a:hover {
+  color: #e05a50; /* Darker accent for hover */
+}
+
+
+/* Distribución del menú (Global Menu Styles from personal.css) */
+.menu-lateral {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 30%;
+  height: 100vh;
+  background: #121212;
+  position: relative; /* Changed from fixed for flex layout */
+  padding: 2rem 1rem;
+  text-align: center;
+  overflow: visible; /* Allow image glow to be visible */
+  max-width: 400px;
+}
+
+/* Styles for menu text and links (Harmonized) */
+.menu-lateral .titulo-destacado { /* From personal.css, specific for "Miguel Morales" */
+  width: 100%;
+  text-align: center;
+  font-size: 4rem;
+  color: #FF92D0;
+  text-transform: uppercase;
+  z-index: 4;
+  font-family: "Chicle", serif;
+  font-weight: 400;
+  font-style: normal;
+  background: linear-gradient(to bottom, black, white);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: white;
+  -webkit-text-stroke: 1px black;
+  margin: 1rem 0; /* Added some margin */
+}
+
+.menu-lateral ul, .menu-lateral .secciones { /* Target both ul and .secciones for safety */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex: 1; /* Occupies available space */
+  display: flex;
+  flex-direction: column;
+  width: 100%; /* Ensure ul takes full width of menu-lateral */
+}
+
+.menu-lateral ul li, .menu-lateral .secciones li {
+  flex: 1; /* Each item takes equal space */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%; /* Ensure li takes full width */
+}
+
+.menu-lateral ul li a, .menu-lateral .secciones li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.5rem;
+  transition: color 0.3s ease, background-color 0.3s ease;
+  font-family: 'Oswald', sans-serif; /* Unified font for menu items */
+  padding: 10px 15px;
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.menu-lateral ul li a:hover, .menu-lateral .secciones li a:hover {
+  background-color: #FF6F61;
+  color: #ffffff;
+}
+
+/* Línea divisoria (from personal.css) */
+.linea-divisoria {
+  display: inline-flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  background: #121212;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.linea-divisoria svg {
+  width: auto;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  z-index: 3;
+}
+
+/* Styling for the keyboard keys (from personal.css - already themed) */
+.tecla rect[fill="#F4F4F4"] { fill: #1E1E1E !important; stroke: #2E2E2E !important; }
+.tecla rect[fill="none"] { stroke: #FF6F61 !important; }
+.tecla text { fill: #FFFFFF !important; }
+.tecla:active rect { transform: scale(0.95); transition: transform 0.1s ease; }
+
+/* Redes sociales al fondo (from personal.css) */
+.social-links { display: flex; justify-content: center; align-items: center; gap: 10px; margin-bottom: 1rem; }
+.social-links a { display: inline-flex; align-items: center; justify-content: center; width: 60px; height: 60px; background-color: #1C1C1C; transition: background-color 0.3s ease, transform 0.3s ease; text-decoration: none; border: none; outline: none; }
+.social-links a:hover { background-color: #FF6F61; transform: scale(1.1); }
+.social-links a img { width: 40px; height: 40px; }
+.social-links a span{ font-size: 3.5rem; text-decoration: none; display: inline-block; color: #FFFFFF; filter: grayscale(100%); text-shadow: -2px -2px 0 #FFFFFF, 2px -2px 0 #FFFFFF, -2px 2px 0 #FFFFFF, 2px 2px 0 #FFFFFF, 0 -2px 0 #FFFFFF, 0 2px 0 #FFFFFF, -2px 0 0 #FFFFFF, 2px 0 0 #FFFFFF; }
+
+/* Texto de autoría (from personal.css) */
+.author-text { margin-top: 15px; font-size: 14px; color: #AAAAAA; font-weight: normal; }
+.author-text:hover { color: #FFFFFF; }
+
+/* Imagen con ajuste (from personal.css - .menu-lateral .foto) */
+.menu-lateral .foto { width: 100%; height: 40%; min-height: 40%; object-fit: cover; object-position: center; position: relative; z-index: 1; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); transition: box-shadow 0.3s ease-in-out; }
+.menu-lateral .foto:before { content: ""; position: absolute; inset: -12px; padding: 10px; border-radius: 10px; background: conic-gradient( #FF6F61, rgba(0, 0, 0, 0) 30deg 120deg, #FF5733 150deg 180deg, rgba(0, 0, 0, 0) 210deg 300deg, #FF6F61 ); -webkit-mask-composite: xor; mask-composite: intersect; z-index: 2; transition: background 0.3s ease, transform 0.5s linear; pointer-events: none; }
+.menu-lateral .foto:after { content: ""; position: absolute; inset: -100px; background: radial-gradient(200px at left 200px top 150px, #FF6F61 15%, rgba(255, 87, 51, 0)), radial-gradient(200px at right 200px bottom 150px, #FF6F61 25%, rgba(255, 87, 51, 0)); filter: blur(100px); opacity: 0.7; z-index: 3; transition: background 0.3s ease-in-out, opacity 0.3s; }
+.menu-lateral .foto:hover { box-shadow: 0 0 100px 25px rgba(255, 111, 97, 0.9); }
+.menu-lateral .foto:hover:before { background: conic-gradient( #FF6F61, rgba(255, 111, 97, 0) 30deg 120deg, #FF5A4C 150deg 180deg, rgba(255, 111, 97, 0) 210deg 300deg, #FF6F61 330deg ); transform: rotate(360deg); transition: transform 1s linear; }
+.menu-lateral .foto:hover:after { background: radial-gradient(200px at left 200px top 150px, #FF6F61 25%, rgba(255, 111, 97, 0)), radial-gradient(200px at right 200px bottom 150px, #FF5A4C 40%, rgba(255, 111, 97, 0)); opacity: 0.9; }
+
+/* Estilos para el modal del teclado (from personal.css) */
+.modal-teclado { position: fixed; bottom: 0; left: 0; right: 0; background-color: rgba(0, 0, 0, 0.8); color: #ffffff; font-family: 'Consolas', monospace; padding: 10px 20px; font-size: 18px; text-align: left; overflow-x: auto; white-space: pre-wrap; z-index: 1000; display: flex; justify-content: flex-start; align-items: center; height: 60px; overflow-y: hidden; }
+#texto-modal { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 100%; }
+
+/* Estilos para párrafos y resaltado (from personal.css, ensures theme colors) */
+section p { text-align: center; margin-bottom: 1.5em; line-height: 1.8; font-size: 1rem; color: #FFFFFF !important; font-weight: normal; transition: color 0.3s ease, text-shadow 0.3s ease; }
+.resaltado { font-style: italic; display: inline-block; transform: rotate(-5deg); transition: transform 0.3s ease, font-style 0.3s ease; color: #FF6F61; font-weight: bold; text-decoration: none; border: none; text-shadow: 0px 0px 5px rgba(255, 111, 97, 0.6), 0px 0px 15px rgba(255, 111, 97, 0.4); }
+.resaltado:hover { transform: rotate(0); font-style: normal; color: #FFFFFF !important; text-shadow: 0px 0px 10px rgba(255, 111, 97, 0.8), 0px 0px 20px rgba(255, 111, 97, 0.6); }
+
+/* Light overlay (from personal.css) */
+.light-overlay { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 10%, rgba(255, 255, 255, 0) 15%); transition: background 0.1s ease-out; z-index: 2; }
+
+/* Contact section styles (from personal.css, themed) */
+#contacto ul { list-style: none; padding-left: 0; text-align: left; display: inline-block; }
+#contacto ul li { padding-left: 20px; margin-bottom: 8px; text-align: left; }
+#contacto ul li a{ color: #FF6F61 !important; text-decoration: none; font-family: Consolas, 'Courier New', monospace; } /* Ensure default font for these links */
+#contacto ul li a:hover{ color: #e05a50 !important; }
+#contacto { text-align: center; margin: 0 auto; width: fit-content; }
+#contacto img, #contacto object { width: 40px; height: 40px; display: inline-block; vertical-align: middle; margin-right: 10px; }
+
+/* Section animations (from personal.css) */
+.main-content section { transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out; opacity: 1; }
+.main-content section.oculto { opacity: 0; transform: translateY(10px); }
+.main-content section[hidden] { display: none; opacity: 0; }
+
+/* Sobre mi section (from personal.css, themed) */
+#sobremi h1, #sobremi h3 { font-family: 'Oswald', sans-serif; font-weight: 700; color: #FFFFFF; }
+#sobremi img { transition: transform 0.3s ease; }
+#sobremi img:hover { transform: scale(1.1); }
+#sobremi p { font-size: 1.1rem; line-height: 1.6; color: #FFFFFF !important; }
+#sobremi .gap-4 > div { width: 120px; }
+#sobremi .gap-4 img { display: block; margin: 0 auto; }
+#sobremi .gap-4 p { margin-top: 10px; font-weight: bold; color: #FFFFFF !important; }
+
+/* Proyectos section (from personal.css, themed) */
+#proyectos { padding: 40px 20px; text-align: center; }
+#proyectos h1 { font-size: 2rem; margin-bottom: 20px; font-family: 'Oswald', sans-serif; color: #FFFFFF; }
+#proyectos p { margin-bottom: 30px; color: #FFFFFF !important; }
+.proyecto { display: flex; align-items: center; margin-bottom: 30px; padding: 20px; border: 1px solid #333; border-radius: 10px; background: #1E1E1E; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); }
+.proyecto-icono { width: 150px; height: 150px; }
+.proyecto-contenido { text-align: left; }
+.proyecto-contenido h3 { font-size: 1.5rem; margin: 0 0 10px; text-align: center; font-family: 'Oswald', sans-serif; color: #FFFFFF; }
+.proyecto-contenido p { margin: 0; color: #FFFFFF !important; }
+#proyectos .proyecto:nth-child(odd) { flex-direction: row; }
+#proyectos .proyecto:nth-child(odd) .proyecto-icono { margin-right: 20px; }
+#proyectos .proyecto:nth-child(even) { flex-direction: row-reverse; }
+#proyectos .proyecto:nth-child(even) .proyecto-icono { margin-left: 20px; }
+
+/* Component Styles from style.css (Themed for Academia content) */
+.main-content .titulo, /* General title in main-content if .titulo is used */
+.titulo { /* Specific class for titles in academia.html, if still used */
+  font-size: 3rem; font-weight: bold; color: white; text-shadow: 2px 2px #141414;
+  text-align: center; padding-top: 20px; font-family: 'Oswald', sans-serif;
+}
+
+.btn-flotante { position: fixed; bottom: 20px; right: 20px; width: 70px; height: 70px; border-radius: 50%; background: #FF6F61; text-shadow: 0 3px 5px rgba(0, 0, 0, 0.2); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4); display: flex; justify-content: center; align-items: center; transform: perspective(500px) rotateX(10deg); animation: saltar 2s infinite ease-in-out; transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease; z-index: 999; }
+.btn-flotante:hover { transform: scale(1.1) perspective(500px) rotateX(0deg); background: #e05a50; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5); }
+.btn-flotante svg { width: 36px; height: 36px; fill: white; transition: transform 0.3s ease, fill 0.3s ease, stroke 0.3s ease; }
+.btn-flotante:hover svg { fill: #FFFFFF; stroke: #000000; stroke-width: 1; transform: scale(1.3); }
+@keyframes saltar { 0%, 100% { transform: translateY(0) perspective(500px) rotateX(10deg); } 50% { transform: translateY(-8px) perspective(500px) rotateX(10deg); } }
+
+.modal-didactico { display: none; position: fixed; z-index: 1500; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.7); }
+.contenido-modal { position: absolute; background: #1e1e1e; color: #FFFFFF; width: 60%; max-width: 800px; padding: 20px; border-radius: 8px; top: 50%; left: 50%; transform: translate(-50%, -50%); box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); text-align: left; font-family: Consolas, 'Courier New', monospace; }
+.cerrar-modal { position: absolute; top: 10px; right: 20px; font-size: 24px; cursor: pointer; color: #aaa; }
+.cerrar-modal:hover { color: #FF6F61; }
+#contenidoDidactico { text-align: justify; max-height: 90vh; overflow-y: auto; padding-right: 10px; line-height: 1.6; font-size: 14px; color: #FFFFFF; }
+#contenidoDidactico::-webkit-scrollbar { width: 8px; }
+#contenidoDidactico::-webkit-scrollbar-thumb { background: #555; border-radius: 4px; }
+#contenidoDidactico::-webkit-scrollbar-thumb:hover { background: #FF6F61; }
+
+#modalCodigo .modal-content { background-color: #1e1e1e; color: #FFFFFF; font-family: Consolas, 'Courier New', monospace; }
+#modalCodigo .modal-header { border-bottom: 1px solid #333; }
+#modalCodigo .modal-footer { border-top: 1px solid #333; }
+#modalCodigo .btn-close { filter: invert(1) grayscale(100%) brightness(200%); }
+#modalCodigo .btn-close:hover, #modalCodigo .btn-close:focus { opacity: 1; }
+#modalCodigo .modal-footer button { background-color: #FF6F61; color: #FFFFFF; border: 0; border-radius: 25px; font-size: 1.2rem; padding: 0.75rem 1.5rem; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); font-family: 'Oswald', sans-serif; }
+#modalCodigo .modal-footer button:hover { background-color: #e05a50; transform: translateY(-2px); box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); }
+
+.seccion { background-color: #1e1e1e; color: #FFFFFF; border-radius: 15px; padding: 2rem; width: 90%; max-width: 1000px; margin: 1rem auto; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); }
+.seccion h2 { font-size: 2rem; color: #FFFFFF; margin-bottom: 20px; font-family: 'Oswald', sans-serif; }
+.seccion button, .main-content button.btn-primary, .main-content button.btn-secondary /* More specific for main content buttons if needed */ { background-color: #FF6F61; color: #FFFFFF; border: 0; border-radius: 25px; font-size: 1.2rem; padding: 0.75rem 1.5rem; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); font-family: 'Oswald', sans-serif; }
+.seccion button:hover, .main-content button.btn-primary:hover, .main-content button.btn-secondary:hover { background-color: #e05a50; transform: translateY(-2px); box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); }
+.seccion button:active, .main-content button.btn-primary:active, .main-content button.btn-secondary:active { transform: translateY(0); box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); }
+.contenido { margin-top: 20px; background-color: #1e1e1e; color: #FFFFFF; padding: 20px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); }
+
+#pregunta-persistencia { margin-top: 20px; padding: 15px; border-left: 5px solid #FF6F61; border-radius: 5px; font-family: Consolas, 'Courier New', monospace; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); background-color: #1e1e1e; color: #FFFFFF; }
+#pregunta-persistencia h3 { margin-top: 0; color: #FF6F61; font-family: 'Oswald', sans-serif; }
+#pregunta-persistencia p { color: #FFFFFF !important; }
+#pregunta-persistencia .hint { font-style: italic; font-size: 0.9em; color: #cccccc; }
+
+.btn-snippet { background-color: #FF6F61 !important; color: #fff !important; border: none !important; font-size: 0.9rem !important; padding: 5px 10px !important; border-radius: 3px !important; text-align: left !important; display: flex !important; align-items: center !important; gap: 8px !important; transition: all 0.3s ease !important; font-family: 'Oswald', sans-serif !important; }
+.btn-snippet i { font-size: 1rem !important; }
+.btn-snippet:hover { background-color: #e05a50 !important; color: #f8f9fa !important; }
+button.btn.btn-dark.btn-snippet { background-color: #FF6F61 !important; color: #fff !important; } /* Bootstrap override */
+
+.form-group { margin-bottom: 15px; text-align: left; }
+.form-group label { font-size: 14px; color: #FFFFFF; display: block; margin-bottom: 5px; font-family: 'Oswald', sans-serif; }
+.form-group input, .form-group textarea { width: 100%; padding: 10px; font-size: 14px; border: 1px solid #555; border-radius: 5px; background-color: #2d2d2d; color: #FFFFFF; transition: border-color 0.3s ease; font-family: Consolas, 'Courier New', monospace; }
+.form-group input:focus, .form-group textarea:focus { outline: none; border-color: #FF6F61; background-color: #333333; box-shadow: 0 3px 10px rgba(255, 111, 97, 0.2); }
+.respuesta { margin-top: 20px; font-size: 14px; color: #FF6F61; }
+
+#menuToggle { display: block; width: 100%; padding: 15px; background: #FF6F61; color: #fff; border: none; border-radius: 8px; font-size: 16px; font-weight: bold; text-align: center; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); margin-bottom: 20px; font-family: 'Oswald', sans-serif; }
+#menuToggle:hover { background: #e05a50; color: #f1e7fd; box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); transform: scale(1.02); }
+#menuDesplegable { position: absolute; top: 0; left: 0; right: 0; background: #1e1e1e; color: #FFFFFF; border: 1px solid #333; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); z-index: 10; display: none; border-radius: 8px; }
+#menuDesplegable ul { list-style: none; margin: 0; padding: 0; }
+#menuDesplegable li { padding: 10px 15px; border-bottom: 1px solid #333; cursor: pointer; transition: background 0.3s ease; font-family: Consolas, 'Courier New', monospace; }
+#menuDesplegable li:last-child { border-bottom: none; text-align: center; font-weight: bold; color: #FF6F61; cursor: pointer; }
+#menuDesplegable li:last-child:hover { background: #2a2a2a; }
+#menuDesplegable li:hover { background: #2a2a2a; }
+
+#seccionAJAX { position: relative; padding: 20px; background: #1e1e1e; border: 1px solid #333; border-radius: 8px; color: #FFFFFF; }
+
+.logo-academia { position: fixed; bottom: 10px; left: 125px; transform: translateX(-50%); z-index: 1100; text-align: left; }
+.logo-academia img { max-width: 250px; height: auto; opacity: 0.9; transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out; }
+.logo-academia img:hover { opacity: 1; transform: scale(1.1); }
+@media (max-height: 780px) {
+  .logo-academia{ position: absolute; left: auto; bottom: auto; top: 10px; right: 10px; transform: none; }
+  .logo-academia img{ max-width: 100px; }
+}
+
+/* Helper classes (from H5BP) */
+.hidden, [hidden] { display: none !important; }
+.visually-hidden { border: 0; clip: rect(0, 0, 0, 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; white-space: nowrap; width: 1px; }
+.visually-hidden.focusable:active, .visually-hidden.focusable:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; white-space: inherit; width: auto; }
+.invisible { visibility: hidden; }
+.clearfix::before, .clearfix::after { content: ""; display: table; }
+.clearfix::after { clear: both; }
+
+/* Print styles (from H5BP, adjusted for dark theme legibility if viewed on screen before print) */
+@media print {
+  *, *::before, *::after { background: #fff !important; color: #000 !important; box-shadow: none !important; text-shadow: none !important; }
+  a, a:visited { text-decoration: underline; }
+  a[href]::after { content: " (" attr(href) ")"; }
+  abbr[title]::after { content: " (" attr(title) ")"; }
+  a[href^="#"]::after, a[href^="javascript:"]::after { content: ""; }
+  pre { white-space: pre-wrap !important; }
+  code { color: #000 !important; background-color: #f0f0f0 !important; font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace; font-size: 12pt; line-height: 1.4; padding: 5px; border-radius: 3px; overflow-x: auto; }
+  pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
+  tr, img { page-break-inside: avoid; }
+  p, h2, h3 { orphans: 3; widows: 3; }
+  h2, h3 { page-break-after: avoid; }
+}
+
+/* Responsive Styles from personal.css (merged and reviewed) */
+@media (max-width: 768px) {
+  html { font-size: 14px; }
+  .menu-lateral .titulo-destacado { font-size: clamp(1.5rem, 10vw, 3rem); /* Adjusted max for clamp */ padding: 0.4rem; }
+  .main-content { padding: 1rem; }
+  .social-links a { width: 50px; height: 50px; }
+  .social-links a img { width: 30px; height: 30px; }
+  .proyecto { flex-direction: column; text-align: center; }
+  .proyecto-icono { margin: 0 0 20px 0; }
+  
+  /* Mobile menu behavior */
+  .menu-lateral {
+    position: fixed; top: 0; left: 0;
+    width: 100%; height: 100%; /* Full screen overlay */
+    background: #121212; color: #FFF;
+    z-index: 1000; /* High z-index to cover content */
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+    transform: translateX(-100%); /* Initially off-screen */
+    transition: transform 0.3s ease-in-out;
+    max-width: none; /* Override desktop max-width */
+    overflow-y: auto; /* Allow menu to scroll if content exceeds height */
+  }
+  .menu-lateral.activo { transform: translateX(0); }
+  .linea-divisoria { display: none; }
+  .menu-toggle { visibility: visible; z-index: 1001; /* Above menu */ }
+  
+  .main-content {
+    padding: 5vh 2rem;
+    max-height: 100vh; /* This might be problematic if menu is also 100vh */
+    /* Consider removing max-height or adjusting if menu is an overlay */
+  }
+  html, body { overflow: auto; } /* Allow body to scroll on mobile */
+  .page-container { display: block; overflow: visible; } /* Adjust for mobile */
+}
+
+@media (max-width: 480px) {
+  html { font-size: 12px; }
+  /* .main-content { display: none; } Potentially hide main content if menu is open and full screen */
+}
+
+/* Responsive Menu Toggle visibility (from personal.css, .menu-toggle already defined) */
+/* .menu-toggle visibility is handled by @media (max-width: 768px) above */
+
+/* Specific section styling from personal.css */
+#experiencia p { font-family: 'Poetsen One', sans-serif; font-weight: bold; font-size: 1.5rem; line-height: 1.5; color: #FF6F61; text-align: center; }
+#experiencia .row { display: flex; flex-wrap: wrap; align-items: stretch; }
+#experiencia .col-md-6 { display: flex; flex-direction: column; justify-content: center; }
+
+/* Desktop scroll behavior */
+@media (min-width: 769px) {
+  html, body { overflow: hidden; }
+  .page-container { overflow: hidden; }
+  /* .main-content overflow: auto; is already set */
+}
+
+/* Final Font Unification for specific elements */
+.menu-lateral .secciones li a, /* Global menu links */
+.main-content h1, .main-content h2, .main-content h3, .main-content h4, .main-content h5, /* Main content headings */
+#sobremi h1, #sobremi h3, /* Specific section headings */
+#proyectos h1, .proyecto-contenido h3, /* Specific section headings */
+.titulo, /* Page titles */
+.seccion h2, /* Section titles within .seccion */
+#pregunta-persistencia h3, /* Specific component titles */
+.form-group label, /* Form labels */
+#menuToggle, /* Button for internal nav */
+.btn-snippet, /* Code snippet button */
+.seccion button, .main-content button.btn-primary, .main-content button.btn-secondary, /* General buttons */
+#modalCodigo .modal-footer button /* Modal buttons */
+{
+    font-family: 'Oswald', sans-serif;
+}
+
+/* Ensure default font for elements that should remain Consolas */
+.main-content p, .main-content div, .main-content li, .main-content span,
+#contacto ul li a,
+.form-group input, .form-group textarea,
+#menuDesplegable li,
+.modal-teclado, #texto-modal,
+#pregunta-persistencia p, #pregunta-persistencia .hint,
+.contenido-modal, #contenidoDidactico, /* Didactic modal content */
+#modalCodigo .modal-content /* Code modal content itself */
+{
+  font-family: Consolas, 'Courier New', monospace;
+}
+/* Override specific cases if .main-content p/div/li/span is too broad */
+.main-content .resaltado { color: #FF6F61; font-family: Consolas, 'Courier New', monospace; font-style: italic; font-weight: bold; } /* .resaltado should keep its specific styling */
+#experiencia p { color: #FF6F61; font-family: 'Poetsen One', sans-serif; } /* #experiencia p has its own font */
+.menu-lateral .titulo-destacado { font-family: "Chicle", serif; } /* Title "Miguel Morales" has its own font */
+
+/* Ensure all text directly in .main-content not otherwise styled defaults to white */
+.main-content {
+    color: #FFFFFF;
+}
+
+/* Styles from css/cajon.css */
+
+/* main#content specific to cajon.html layout - ensure this is scoped if needed, or general enough */
+/* If main#content is a direct child of .main-content for cajon.html, this might work: */
+.main-content > main#content { /* Scoping to main#content directly under .main-content */
+  display: flex;
+  align-items: center;     
+  justify-content: center; 
+  flex-grow: 1; /* Ensure it can grow to fill space */
+  width: 100%; /* Take full width of its parent (.main-content's flex item area) */
+}
+
+/* Cajón de aplicaciones utilizando Bootstrap Grid */
+#app-drawer {
+  max-width: 800px;         
+  margin: auto; /* This will center it if parent main#content uses flex and allows centering */          
+  border: 4px dashed #FF6F61;  /* Accent color for border */
+  border-radius: 15px;      
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);  
+  padding: 20px;
+  background-color: transparent; 
+}
+
+.app-icon {
+  cursor: pointer;
+  text-align: center;
+  color: #FFFFFF; 
+}
+
+.app-icon div { /* Text under app icon */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  color: #FFFFFF; 
+  font-family: 'Oswald', sans-serif; /* Use Oswald for app names */
+}
+
+.app-icon img {
+  width: 70px;
+  height: 70px;
+  border-radius: 20%;
+  transition: transform 0.3s;
+}
+
+.app-icon:hover img {
+  transform: scale(1.1);
+}
+
+/* Animaciones de transición para cambiar de vista */
+.fade-in {
+  animation: fadeIn 0.5s forwards;
+}
+
+.fade-out {
+  animation: fadeOut 0.5s forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(20px); }
+}
+
+/* Vista de curso a pantalla completa */
+#course-view {
+  position: fixed; /* Covers the whole screen */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #121212; /* Theme primary background */
+  display: none; /* Initially hidden */
+  /* padding-top: 60px; Retain if header/menu would overlap, but global menu is sidebar */
+  color: #FFFFFF; 
+  z-index: 2000; /* Ensure it's above other content like global menu if it were fixed on top */
+  /* Flex properties to center its content */
+  display: flex; /* Changed to flex to use align/justify for wrapper */
+  flex-direction: column; /* Stack title, desc, button */
+  align-items: center;
+  justify-content: center;
+}
+
+/* Course title */
+#course-view #course-title {
+  font-family: 'Oswald', sans-serif;
+  color: #FFFFFF;
+  font-size: 2.5rem; /* Example size */
+  margin-bottom: 1rem;
+}
+
+/* Course description */
+#course-view #course-description {
+  font-family: Consolas, 'Courier New', monospace;
+  color: #FFFFFF;
+  font-size: 1.1rem; /* Example size */
+  margin-bottom: 2rem;
+  max-width: 600px; /* Limit width for readability */
+  text-align: center; /* Center the description text */
+}
+
+/* Course view button (already themed by general button styles) */
+#course-view .btn-primary {
+  /* Theme styles for .main-content button.btn-primary will apply */
+  /* background-color: #FF6F61; */
+  /* color: #FFFFFF; */
+  /* border-color: #FF6F61; */
+  /* font-family: 'Oswald', sans-serif; */
+  padding: 0.75rem 2rem; /* Larger padding for a primary action */
+}
+
+/* Back button for course view */
+#course-view #back-button { /* Ensure it's styled if not covered by general button styles */
+    position: absolute; /* Position it within #course-view */
+    top: 20px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    padding: 0.5rem;
+}
+
+#course-view #back-button i {
+  display: inline-block;
+  font-size: 2.5rem;            
+  color: #fff;                  
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);  
+  filter: drop-shadow(0 0 4px rgba(0,0,0,0.7)); 
+  transition: color 0.3s ease;
+}
+#course-view #back-button:hover i {
+    color: #FF6F61; /* Accent color on hover */
+}
+
+
+/* Wrapper for centering content within course-view if needed, though #course-view itself is flex now */
+.course-info-wrapper {
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  align-items: center;      
+  justify-content: center;  
+  height: auto; /* Let content define height, or set to 100% if #course-view has padding */
+  text-align: center; /* Center text within this wrapper */
+}
+
+/* Responsive for back button icon size from cajon.css */
+@media (max-width: 576px) {
+  #course-view #back-button i {
+    font-size: 1.5rem;
+  }
+}
+
+/* @media (min-width: 1200px) { ... } for #back-button i already covered by default */
+```

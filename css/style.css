@@ -15,7 +15,37 @@ body {
   min-height: 100vh;
   margin: 0;
   padding: 0;
+  font-family: Consolas, 'Courier New', monospace; /* Default body font */
+}
 
+/* Styles for main content area */
+.main-content {
+  background-color: #121212; /* Primary background for main content */
+  color: #FFFFFF; /* Primary text color for main content */
+  padding: 1rem; /* Add some padding */
+}
+
+.main-content p {
+  font-family: Consolas, 'Courier New', monospace;
+  color: #FFFFFF;
+}
+
+.main-content a {
+  color: #FF6F61; /* Accent color for links */
+}
+
+.main-content a:hover {
+  color: #e05a50; /* Darker accent for hover */
+}
+
+/* Headings within main-content */
+.main-content h1,
+.main-content h2,
+.main-content h3,
+.main-content h4,
+.main-content h5 {
+  font-family: 'Oswald', sans-serif;
+  color: #FFFFFF;
 }
 
 .titulo {
@@ -25,6 +55,7 @@ body {
   text-shadow: 2px 2px #141414; /* Sombra oscura */
   text-align: center; /* Centrado horizontalmente */
   padding-top: 20px; /* Separación del borde superior */
+  font-family: 'Oswald', sans-serif; /* Heading font */
 }
 /* Menú lateral */
 .menu-lateral {
@@ -41,7 +72,6 @@ body {
   box-shadow: 4px 0 8px rgba(0, 0, 0, 0.2); /* Sombra */
   display: flex;
   flex-direction: column; /* Alinea el contenido verticalmente */
-
 }
 
 .menu-lateral a {
@@ -53,9 +83,10 @@ body {
   transition: color 0.3s ease-in-out; /* Transición para hover */
   line-height: 1.8;
   position: relative;
+  font-family: 'Oswald', sans-serif; /* Heading font for menu items */
 }
 .menu-lateral a:hover {
-  color: #ffef5e; /* Color dorado/amarillo de hover */
+  color: #FF6F61; /* Accent color for hover */
 }
 .menu-lateral .menu a:hover::after {
   content: '';
@@ -64,7 +95,7 @@ body {
   bottom: 10px;
   height: 3px;
   width: calc(100% - 60px); /* Toma el ancho del enlace */
-  background: #ffef5e;
+  background: #FF6F61; /* Accent color for underline */
   border-radius: 5px;
   animation: subrayado 0.3s ease-in-out;
 }
@@ -117,9 +148,8 @@ body {
 
 /* Ajustes específicos del icono SVG */
 .menu-lateral .cerrar .icono-flecha {
-  stroke: #ffef5e; /* Cambia a amarillo */
+  stroke: #FF6F61; /* Accent color for arrow */
   stroke-width: 14; /* Grosor ligeramente mayor */
-
 }
 
 
@@ -131,6 +161,7 @@ body {
   margin: 0 30px; /* Espaciado horizontal */
   padding: 10px 0; /* Un poco de espacio arriba y abajo */
   border-bottom: 2px solid white; /* Línea divisoria */
+  font-family: 'Oswald', sans-serif; /* Heading font for menu title */
 }
 
 /* Botón para abrir el menú */
@@ -138,7 +169,7 @@ body {
 
   font-size: 1.5rem;
   cursor: pointer;
-  background: linear-gradient(135deg, #320064, #6f00ff); /* Tonos luminosos y vivos */
+  background: #FF6F61; /* Accent color for hamburger button */
   color: white;
   border: none;
   position: fixed;
@@ -152,7 +183,7 @@ body {
 }
 .btn-hamburguesa:hover {
   transform: scale(1.1); /* Crece ligeramente al hover */
-  background: linear-gradient(120deg, #8e2de2, #4a00e0); /* Más brillante en hover */
+  background: #e05a50; /* Darker accent for hover */
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Sombras más profundas */
 }
 .btn-hamburguesa.oculto {
@@ -168,7 +199,7 @@ body {
   width: 70px;
   height: 70px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #320064, #6f00ff); /* Tonos luminosos y vivos */
+  background: #FF6F61; /* Accent color for floating button */
   text-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
   display: flex;
@@ -181,7 +212,7 @@ body {
 
 .btn-flotante:hover {
   transform: scale(1.1) perspective(500px) rotateX(0deg);
-  background: linear-gradient(135deg, #141414, #282828); /* Tonos oscuros de la paleta */
+  background: #e05a50; /* Darker accent for hover */
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
 }
 
@@ -193,10 +224,10 @@ body {
 }
 
 .btn-flotante:hover svg {
-  fill: #ffef5e; /* Cambia el color interno a dorado */
-  stroke: #000000; /* El contorno permanece en negro */
-  stroke-width: 1; /* Amplía un poco más el borde al hacer hover */
-  transform: scale(1.3); /* Agranda el icono al pasar el ratón */
+  fill: #FFFFFF; 
+  stroke: #000000; 
+  stroke-width: 1; 
+  transform: scale(1.3); 
 }
 
 @keyframes saltar {
@@ -217,12 +248,13 @@ body {
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro y semitransparente */
+  background-color: rgba(0, 0, 0, 0.7); /* Darker overlay for modals */
 }
 
 .contenido-modal {
   position: absolute;
-  background: white;
+  background: #1e1e1e; /* Dark background for modal content */
+  color: #FFFFFF; /* White text for modal content */
   width: 60%;
   max-width: 800px;
   padding: 20px;
@@ -231,8 +263,8 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  text-align: left; /* Asegurar alineación a la izquierda */
-  font-family: Arial, sans-serif; /* Fuente legible y profesional */
+  text-align: left; 
+  font-family: Consolas, 'Courier New', monospace; /* Default font for modal */
 }
 
 .cerrar-modal {
@@ -245,78 +277,115 @@ body {
 }
 
 .cerrar-modal:hover {
-  color: #000;
+  color: #FF6F61; /* Accent color for close button hover */
+}
+
+/* Adjustments for Bootstrap modal close button */
+#modalCodigo .modal-content {
+  background-color: #1e1e1e; /* Dark background for code modal */
+  color: #FFFFFF; /* White text for code modal */
+  font-family: Consolas, 'Courier New', monospace;
+}
+
+#modalCodigo .modal-header {
+  border-bottom: 1px solid #333; /* Separator for header */
+}
+
+#modalCodigo .modal-footer {
+  border-top: 1px solid #333; /* Separator for footer */
+}
+
+#modalCodigo .btn-close {
+  filter: invert(1) grayscale(100%) brightness(200%); /* Make it white */
+}
+
+#modalCodigo .btn-close:hover,
+#modalCodigo .btn-close:focus {
+  color: #FF6F61; /* This might not work directly, Bootstrap handles it */
+  opacity: 1;
 }
 
 /* Ajustes para alinear el contenido del modal */
 #contenidoDidactico {
-  text-align: justify; /* Justificar el texto */
-  max-height: 90vh; /* Altura límite para el contenido */
-  overflow-y: auto; /* Habilitar desplazamiento vertical */
-  padding-right: 10px; /* Separación para evitar cortar texto por la barra de scroll */
-  line-height: 1.6; /* Mejorar espaciado entre líneas */
-  font-size: 14px; /* Tamaño de fuente legible */
+  text-align: justify; 
+  max-height: 90vh; 
+  overflow-y: auto; 
+  padding-right: 10px; 
+  line-height: 1.6; 
+  font-size: 14px; 
+  color: #FFFFFF; /* Ensure text is white */
 }
 
 /* Personalización para el scroll */
 #contenidoDidactico::-webkit-scrollbar {
-  width: 8px; /* Ancho del scroll */
+  width: 8px; 
 }
 
 #contenidoDidactico::-webkit-scrollbar-thumb {
-  background: #bbb; /* Color del scroll */
-  border-radius: 4px; /* Esquinas redondeadas */
+  background: #555; /* Darker scrollbar */
+  border-radius: 4px; 
 }
 
 #contenidoDidactico::-webkit-scrollbar-thumb:hover {
-  background: #888; /* Color del scroll al pasar el puntero */
+  background: #FF6F61; /* Accent color for scrollbar hover */
 }
 
 
 .seccion {
-  background: rgba(255, 255, 255, 0.8); /* Fondo blanco con transparencia */
-  border-radius: 15px; /* Bordes más redondeados */
-  padding: 40px; /* Más espacio interno dentro del cuadro */
-  width: 90%; /* Más ancho que antes */
-  max-width: 1000px; /* Aumentado el tamaño máximo */
-  margin: 30px auto; /* Centrado horizontal */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra para destacar el cuadro */
+  background-color: #1e1e1e; /* Slightly lighter dark shade for sections */
+  color: #FFFFFF; /* White text for sections */
+  border-radius: 15px; 
+  padding: 2rem; /* Consistent padding */
+  width: 90%; 
+  max-width: 1000px; 
+  margin: 1rem auto; /* Consistent margin */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
 }
 
 .seccion h2 {
   font-size: 2rem;
-  color: #333;
+  color: #FFFFFF; /* White headings in sections */
   margin-bottom: 20px;
+  font-family: 'Oswald', sans-serif; /* Heading font */
 }
 
 /* Estilos para los botones */
-.seccion button {
-  background: linear-gradient(135deg, #320064, #6f00ff); /* Tonos luminosos y vivos */
-  color: white; /* Texto blanco */
+.seccion button,
+.main-content button, /* General buttons in main-content */
+#modalCodigo .modal-footer button /* Buttons in code modal footer */
+{
+  background-color: #FF6F61; /* Accent color for buttons */
+  color: #FFFFFF; /* White text for buttons */
   border: 0;
-  border-radius: 50px; /* Redondeado */
+  border-radius: 25px; /* Consistent border-radius */
   font-size: 1.2rem;
-  padding: 10px 30px; /* Espaciado interno */
+  padding: 0.75rem 1.5rem; /* Consistent padding */
   cursor: pointer;
-  transition: all 0.3s ease; /* Transición para el efecto hover */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombras */
+  transition: all 0.3s ease; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+  font-family: 'Oswald', sans-serif; /* Oswald for button text */
 }
 
-.seccion button:hover {
-  background: linear-gradient(135deg, #6f00ff, #9e47ff); /* Tonos más claros y vibrantes */
-  transform: translateY(-2px); /* Efecto de "flotación" */
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Sombras más marcadas */
+.seccion button:hover,
+.main-content button:hover,
+#modalCodigo .modal-footer button:hover {
+  background-color: #e05a50; /* Darker accent for hover */
+  transform: translateY(-2px); 
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); 
 }
 
-.seccion button:active {
-  transform: translateY(0); /* Regresa cuando se presiona */
+.seccion button:active,
+.main-content button:active,
+#modalCodigo .modal-footer button:active {
+  transform: translateY(0); 
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 
 .contenido {
   margin-top: 20px;
-  background-color: #fdfdfd;
+  background-color: #1e1e1e; /* Darker background for content within section */
+  color: #FFFFFF;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -324,18 +393,21 @@ body {
 
 
 html {
-  color: #222;
+  color: #FFFFFF; /* Default text color to white for the page */
   font-size: 1em;
   line-height: 1.4;
+  font-family: Consolas, 'Courier New', monospace; /* Default body font */
 }
 
 ::-moz-selection {
-  background: #b3d4fc;
+  background: #FF6F61; /* Accent color for selection */
+  color: #FFFFFF;
   text-shadow: none;
 }
 
 ::selection {
-  background: #b3d4fc;
+  background: #FF6F61; /* Accent color for selection */
+  color: #FFFFFF;
   text-shadow: none;
 }
 
@@ -528,10 +600,11 @@ textarea {
 
   code {
 
-    color: #333; /* Texto negro */
+  color: #FFFFFF; /* White text in code blocks */
     font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
     font-size: 14px;
     line-height: 1.5;
+  background-color: #2d2d2d; /* Dark background for code */
     padding: 10px;
     border-radius: 5px;
     overflow-x: auto; /* Para scroll horizontal si es necesario */
@@ -565,56 +638,60 @@ textarea {
   margin-top: 20px;
   padding: 15px;
   background-color: #f8f9fa; /* Fondo claro */
-  border-left: 5px solid #007bff; /* Línea decorativa azul */
+  border-left: 5px solid #FF6F61; /* Accent color border */
   border-radius: 5px;
-  font-family: 'Arial', sans-serif;
+  font-family: Consolas, 'Courier New', monospace; /* Default font */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #1e1e1e; /* Dark background */
+  color: #FFFFFF; /* White text */
 }
 
 #pregunta-persistencia h3 {
   margin-top: 0;
-  color: #007bff; /* Azul bonito */
+  color: #FF6F61; /* Accent color for heading */
+  font-family: 'Oswald', sans-serif; /* Heading font */
 }
 
 #pregunta-persistencia p {
   margin: 10px 0;
-  color: #212529; /* Gris oscuro */
+  color: #FFFFFF; /* White text */
 }
 
 #pregunta-persistencia .hint {
   font-style: italic;
   font-size: 0.9em;
-  color: #6c757d; /* Gris claro */
+  color: #cccccc; /* Lighter gray for hint */
 }
 
 /* Estilo para el botón "Ver código" */
 .btn-snippet {
-  background-color: #230046 !important; /* Morado oscuro de la paleta */
-  color: #fff !important; /* Texto blanco */
-  border: none !important; /* Eliminar bordes adicionales */
-  font-size: 0.9rem !important; /* Tamaño discreto */
+  background-color: #FF6F61 !important; /* Accent color */
+  color: #fff !important; 
+  border: none !important; 
+  font-size: 0.9rem !important; 
   padding: 5px 10px !important; /* Espaciado interno */
   border-radius: 3px !important; /* Bordes ligeramente redondeados */
   text-align: left !important; /* Alinear el contenido del botón a la izquierda */
   display: flex !important; /* Flex para iconos y texto alineados */
   align-items: center !important; /* Ajustar alineación vertical al centro */
-  gap: 8px !important; /* Separación entre el icono y el texto */
-  transition: all 0.3s ease !important; /* Animación suave */
+  gap: 8px !important; 
+  transition: all 0.3s ease !important; 
+  font-family: 'Oswald', sans-serif !important; /* Oswald for button text */
 }
 
 .btn-snippet i {
-  font-size: 1rem !important; /* Tamaño del icono alineado al texto */
+  font-size: 1rem !important; 
 }
 
 /* Efecto al pasar el cursor */
 .btn-snippet:hover {
-  background-color: #320064 !important; /* Morado más intenso de la paleta */
-  color: #f8f9fa !important; /* Texto ligeramente más claro */
+  background-color: #e05a50 !important; /* Darker accent */
+  color: #f8f9fa !important; 
 }
 
 button.btn.btn-dark.btn-snippet {
-  background-color: #230046 !important; /* Morado oscuro consistente */
-  color: #fff !important; /* Texto blanco */
+  background-color: #FF6F61 !important; /* Accent color */
+  color: #fff !important; 
 }
 
 /* Estilo de grupo de formulario */
@@ -625,9 +702,10 @@ button.btn.btn-dark.btn-snippet {
 
 .form-group label {
   font-size: 14px;
-  color: #333;
+  color: #FFFFFF; /* White labels */
   display: block;
   margin-bottom: 5px;
+  font-family: 'Oswald', sans-serif;
 }
 
 .form-group input,
@@ -635,64 +713,68 @@ button.btn.btn-dark.btn-snippet {
   width: 100%;
   padding: 10px;
   font-size: 14px;
-  border: 1px solid #ccc;
+  border: 1px solid #555; /* Darker border */
   border-radius: 5px;
-  background-color: #fdfdfd;
+  background-color: #2d2d2d; /* Dark input background */
+  color: #FFFFFF; /* White input text */
   transition: border-color 0.3s ease;
+  font-family: Consolas, 'Courier New', monospace;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #007bff;
-  background-color: #ffffff;
-  box-shadow: 0 3px 10px rgba(0, 123, 255, 0.2);
+  border-color: #FF6F61; /* Accent color border on focus */
+  background-color: #333333; /* Slightly lighter dark on focus */
+  box-shadow: 0 3px 10px rgba(255, 111, 97, 0.2); /* Accent color shadow */
 }
 
 /* Respuesta */
 .respuesta {
   margin-top: 20px;
   font-size: 14px;
-  color: green;
+  color: #FF6F61; /* Accent color for response text */
 }
 
 /* Botón para mostrar/ocultar el menú */
 #menuToggle {
   display: block; /* Asegura que ocupe todo el ancho del contenedor */
-  width: 100%; /* Establece el ancho completo */
-  padding: 15px; /* Espaciado interno más amplio */
-  background: #6f00ff; /* Color vibrante de la paleta */
-  color: #fff; /* Texto blanco */
-  border: none; /* Sin bordes */
+  width: 100%; 
+  padding: 15px; 
+  background: #FF6F61; /* Accent color */
+  color: #fff; 
+  border: none; 
   border-radius: 8px; /* Bordes más redondeados */
   font-size: 16px; /* Texto ligeramente más grande */
-  font-weight: bold; /* Resaltar el texto */
-  text-align: center; /* Centrar el texto */
-  cursor: pointer; /* Cursor pointer para indicar clic */
-  transition: all 0.3s ease; /* Transición suave para hover */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Añade un efecto de sombra */
+  font-weight: bold; 
+  text-align: center; 
+  cursor: pointer; 
+  transition: all 0.3s ease; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
   margin-bottom: 20px;
+  font-family: 'Oswald', sans-serif; /* Oswald for button text */
 }
 
 #menuToggle:hover {
-  background: #320064; /* Color de hover más oscuro de la paleta */
-  color: #f1e7fd; /* Texto ligeramente más claro */
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Intensifica la sombra en hover */
-  transform: scale(1.02); /* Pequeño efecto de "crecimiento" */
+  background: #e05a50; /* Darker accent for hover */
+  color: #f1e7fd; 
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); 
+  transform: scale(1.02); 
 }
 
 /* Contenedor del menú */
 #menuDesplegable {
   position: absolute;
-  top: 0; /* Desde la parte superior del div seccion */
+  top: 0; 
   left: 0;
   right: 0;
-  background: white;
-  border: 1px solid #eaeaea;
+  background: #1e1e1e; /* Dark background for dropdown */
+  color: #FFFFFF; /* White text */
+  border: 1px solid #333; /* Darker border */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   z-index: 10;
-  display: none; /* Oculto por defecto */
-  border-radius: 8px; /* Bordes redondeados */
+  display: none; 
+  border-radius: 8px; 
 }
 
 /* Listado del menú */
@@ -704,34 +786,36 @@ button.btn.btn-dark.btn-snippet {
 
 #menuDesplegable li {
   padding: 10px 15px;
-  border-bottom: 1px solid #eaeaea;
+  border-bottom: 1px solid #333; /* Darker border for items */
   cursor: pointer;
   transition: background 0.3s ease;
+  font-family: Consolas, 'Courier New', monospace; /* Default font for items */
 }
 
 #menuDesplegable li:last-child {
-  border-bottom: none; /* Eliminar el borde del último elemento */
-  text-align: center; /* Centrar la cruz */
+  border-bottom: none; 
+  text-align: center; 
   font-weight: bold;
-  color: #ff4d4d;
+  color: #FF6F61; /* Accent color for close item */
   cursor: pointer;
 }
 
 #menuDesplegable li:last-child:hover {
-  background: #ffebeb; /* Fondo rojo claro al pasar el mouse */
+  background: #2a2a2a; /* Slightly lighter dark for hover */
 }
 
 #menuDesplegable li:hover {
-  background: #f0f0f0; /* Cambiar color al pasar el mouse */
+  background: #2a2a2a; /* Slightly lighter dark for hover */
 }
 
 /* Hacer que seccionAJAX sea referencia para el menú */
 #seccionAJAX {
-  position: relative; /* Clave para que el menú se posicione dentro de este div */
+  position: relative; 
   padding: 20px;
-  background: #f9f9f9;
-  border: 1px solid #ddd;
+  background: #1e1e1e; /* Dark background */
+  border: 1px solid #333; /* Darker border */
   border-radius: 8px;
+  color: #FFFFFF; /* White text */
 }
 
 /* Contenedor del logo */
@@ -740,12 +824,12 @@ button.btn.btn-dark.btn-snippet {
   bottom: 10px; /* Separación desde el borde inferior */
   left: 125px; /* Centrarlo horizontalmente */
   transform: translateX(-50%); /* Ajustar el centro del logo */
-  z-index: 1100; /* Asegurar que esté encima del menú lateral */
+  z-index: 1100; 
   text-align: left;
 }
 
 .logo-academia img {
-  max-width: 250px; /* Ajustar el tamaño a un máximo de 100px */
+  max-width: 250px; 
   height: auto; /* Mantener proporciones del logo */
   opacity: 0.9; /* Hacerlo ligeramente transparente */
   transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out; /* Transiciones suaves */
